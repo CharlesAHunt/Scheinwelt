@@ -8,7 +8,8 @@ object ApplicationBuild extends Build {
   val appVersion      = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
-    // Add your project dependencies here,
+    "net.vz.mongodb.jackson" % "mongo-jackson-mapper" % "1.4.2",
+    "org.mongodb" % "mongo-java-driver" % "2.11.2",
     javaCore,
     javaJdbc,
     javaEbean
