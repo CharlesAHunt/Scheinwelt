@@ -11,24 +11,19 @@
 
     <body>
         <div class="container">
-
-            <div class="masthead">
-                <h3 class="muted">Jumble</h3>
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <ul class="nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#">My Group</a></li>
-                                <li><a href="#">Whos Online</a></li>
-                                <li><a href="#">Search</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <a class="navbar-brand" href="#">Jumble</a>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">My Group</a></li>
+                        <li><a href="#">Whos Online</a></li>
+                        <li><a href="#">Search</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-            </div>
+            </nav>
 
             @content
 
@@ -37,6 +32,5 @@
             </div>
 
         </div>
-
     </body>
 </html>
