@@ -1,7 +1,8 @@
 package models;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import net.vz.mongodb.jackson.*;
+import org.mongojack.MongoCollection;
+import org.mongojack.ObjectId;
 
 /**
  * User: Charles
@@ -9,22 +10,20 @@ import net.vz.mongodb.jackson.*;
  */
 
 @MongoCollection(name = "profiles")
-public class Profile {
+class Profile {
 
-    private String id;
+    val id: String
 
     @ObjectId
     @JsonProperty("_id")
-    public String getId() {
-        return id;
+    def getId() {
+        id
     }
 
     @ObjectId
     @JsonProperty("_id")
-    public void setId(String id) {
-        this.id = id;
+    def setId(id: String) {
+        this.id = id
     }
-
-    public Profile() {   }
 
 }

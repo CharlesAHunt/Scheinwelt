@@ -2,7 +2,7 @@ package utils;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-import net.vz.mongodb.jackson.JacksonDBCollection;
+import org.mongojack.JacksonDBCollection;
 
 import java.net.UnknownHostException;
 
