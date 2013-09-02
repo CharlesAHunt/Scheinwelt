@@ -1,8 +1,9 @@
-package models;
+package models
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.mongojack.MongoCollection;
-import org.mongojack.ObjectId;
+import org.codehaus.jackson.annotate.JsonProperty
+import org.mongojack.{Id, MongoCollection, ObjectId}
+import java.util.Date
+import com.fasterxml.jackson.databind.BeanProperty
 
 /**
  * User: Charles
@@ -10,20 +11,11 @@ import org.mongojack.ObjectId;
  */
 
 @MongoCollection(name = "profiles")
-class Profile {
+class Profile(
 
-    val id: String
-
-    @ObjectId
-    @JsonProperty("_id")
-    def getId() {
-        id
-    }
-
-    @ObjectId
-    @JsonProperty("_id")
-    def setId(id: String) {
-        this.id = id
-    }
+               @ObjectId @Id val id: String,
+               @BeanProperty @JsonProperty("date") val date: Date) {
+  @ObjectId
+  @Id def getId = id
 
 }
