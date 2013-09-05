@@ -20,7 +20,7 @@ object DatabaseUtil {
         }
     }
 
-    def getCollection[T](name: String, entityType: Class[T]): JacksonDBCollection[T,java.lang.Object] = {
+    def getCollection[T](name: String, entityType: Class[T]): JacksonDBCollection[T, _ <: AnyRef] = {
 
         try {
 
@@ -38,13 +38,10 @@ object DatabaseUtil {
     def getEntityById[T](collectionName: String, entityType: Class[T], id: String):Any = {
 
         try {
-            def jacksonDBCollection: JacksonDBCollection[T,java.lang.Object] = getCollection(collectionName, entityType)
+            val jacksonDBCollection: JacksonDBCollection[T,_ <: Any] = getCollection(collectionName, entityType)
             jacksonDBCollection.findOneById(id)
         } catch {
-          case e: Exception => {
-            e.printStackTrace()
-            return null
-          }
+          case e: Exception => e.printStackTrace()
         }
 
     }

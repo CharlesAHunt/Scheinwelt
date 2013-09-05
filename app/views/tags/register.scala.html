@@ -1,0 +1,44 @@
+@(registerForm: Form[User])
+
+@import helper._
+@import helper.twitterBootstrap._
+@import tags._
+
+<div id="register" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="registerLabel">Register</h3>
+    </div>
+
+    @form(routes.Application.register) {
+        <div class="modal-body">
+            <div>
+                @inputText(
+                    registerForm("username"),
+                    '_label -> "Username",
+                    '_help -> "Please choose a valid username.",
+                    '_error -> registerForm.globalError
+                )
+
+                @inputPassword(
+                    registerForm("password"),
+                    '_label -> "Password",
+                    '_help -> "A password must be at least 6 characters. "
+                )
+
+                @inputPassword(
+                    registerForm("repeatPassword"),
+                    '_label -> "Repeat password",
+                    '_help -> "Please repeat your password again.",
+                    '_error -> registerForm.error("password")
+                )
+                <br>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <input type="submit" class="btn btn-success" value="Register">
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+@(uploadForm: Form[File], contracts: List[Contract])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
+<center><h2>Upload a File</h2></center>
+    <br>
+
+    <div style="text-align: left;">
+
+        &nbsp; <p>1. Choose a template:</p>
+        <div class="row">
+        	<div class="span2"><p>&nbsp;</p></div>
+            <div class="span3">
+                @select(field = uploadForm("contract"), options = options(contracts.toList.map(_.toString)), '_label -> "")
+            </div>
+            <div class="span3" style="margin-top:5px;">
+                <a href='#' class='btn btn-small' id='btn-preview'>View Template Details</a>
+            </div>
+            <div class="span2"><p>&nbsp;</p></div>
+        </div>
+        &nbsp; <p>2. Select a file:</p>
+        <div class="row">
+        	<div class="span2"><p>&nbsp;</p></div>
+            <div class="span3">
+                @inputFile(uploadForm("resourceFile"),  '_label -> "")
+            </div>
+            
+            <div class="span7"><p>&nbsp;</p></div>
+        </div>
+        <div class = "row">
+        	<div class="span5"><p>&nbsp;</p></div>
+        	<div class="span2"><input type="submit" class="btn btn-success"></div>
+        	<div class="span5"><p>&nbsp;</p></div>
+        </div>
+    </div>
+}
+    <div id='previewBox'>
+
+    </div>
+
+
+
+

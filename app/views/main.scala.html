@@ -13,10 +13,26 @@
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <a class="navbar-brand" href="./">Jumble</a>
+                    <a class="navbar-brand" href="./index">Jumble</a>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="./">Home</a></li>
-                        <li><a href="./profile">My Group</a></li>
+                        <li id='index'><a href="./index">Home</a></li>
+                        <li id='profile'><a href="./profile">My Group</a></li>
+                        @if(Access.getUserName == null) {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Sign In
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#myModal" role="button" data-toggle="modal">Login</a></li>
+                                    <li><a href="#register" role="button" data-toggle="modal">Register</a></li>
+                                </ul>
+
+                            </li>
+                        }  else{
+                            <li><a href="./logout">Log Out</a></li>
+                            <li style="margin-left: 300px;"><a>Logged in as: <b>@{Access.getUserName}</b></a></li>
+                        }
                     </ul>
                 </div>
             </nav>
@@ -30,3 +46,20 @@
         </div>
     </body>
 </html>
+
+<script type="text/javascript">
+    var path = window.location.pathname.replace("/","").replace("#","");
+    $("#"+path).addClass("active");
+</script>
+
+<div id="preview-model" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h3 id="myModalLabel">Template Details</h3>
+    </div>
+    <div class="modal-body" id="preview-body">
+        <p>Preview....</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
