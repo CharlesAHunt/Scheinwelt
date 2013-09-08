@@ -1,8 +1,7 @@
-@(loginForm: Form[User])
+@(loginForm: Form[Group])
 
 @import helper._
 @import helper.twitterBootstrap._
-@import tags._
 
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -11,19 +10,19 @@
         <h3 id="myModalLabel">Login</h3>
     </div>
 
-    @form(routes.Application.login) {
+    @form(routes.Access.login()) {
     <div class="modal-body">
         <div>
 
             <fieldset>
                 @inputText(
-                    loginForm("username"),
+                    loginForm("name"),
                     '_label -> "Username",
                     '_error -> loginForm.globalError
                 )
 
                 @inputPassword(
-                    loginForm("password"),
+                    loginForm("token"),
                     '_label -> "Password"
                 )
             </fieldset>

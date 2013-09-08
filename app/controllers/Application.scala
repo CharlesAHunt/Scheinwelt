@@ -6,8 +6,17 @@ import views.html._
 
 object Application extends Controller {
 
-    def index = Action {
-        Ok(views.html.index())
-    }
+  def index = Action {
+    Ok(views.html.index())
+  }
+
+  def register = Action {
+    Ok(views.html.index())
+  }
+
+  def uploadImage = Action {
+    Ok(views.html.index())
+  }
+
 
 }

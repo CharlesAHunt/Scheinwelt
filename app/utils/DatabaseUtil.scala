@@ -1,49 +1,26 @@
 package utils
 
-import com.mongodb.DB
-import com.mongodb.MongoClient
-import org.mongojack.JacksonDBCollection
-
-import java.net.UnknownHostException
+import com.mongodb.casbah.Imports._
 
 object DatabaseUtil {
 
-    def getDB:DB = {
+    def getCollection(collectionName: String) = {
 
-        try {
-            val mongoClient = new MongoClient( )
-
-            mongoClient.getDB("database")
-
-        } catch {
-          case uhe: UnknownHostException => return null
-        }
-    }
-
-    def getCollection[T](name: String, entityType: Class[T]): JacksonDBCollection[T, _ <: AnyRef] = {
-
-        try {
-
-            JacksonDBCollection.wrap(getDB.getCollection(name), entityType)
-
-        } catch {
-            case e: Exception => {
-              e.printStackTrace()
-              return null
-            }
-        }
+      val mongoClient = MongoClient()
+      val db = mongoClient("database")
+      db(collectionName)
 
     }
 
-    def getEntityById[T](collectionName: String, entityType: Class[T], id: String):Any = {
-
-        try {
-            val jacksonDBCollection: JacksonDBCollection[T,_ <: Any] = getCollection(collectionName, entityType)
-            jacksonDBCollection.findOneById(id)
-        } catch {
-          case e: Exception => e.printStackTrace()
-        }
-
-    }
+//    def getEntityById[T](collectionName: String, id: String):Any = {
+//
+//        try {
+//            val coll = db(collectionName)
+//            coll.findOneById(id)
+//        } catch {
+//          case e: Exception => e.printStackTrace()
+//        }
+//
+//    }
 }
 

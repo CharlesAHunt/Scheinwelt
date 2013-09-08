@@ -1,8 +1,7 @@
-@(registerForm: Form[User])
+@(registerForm: Form[Group])
 
 @import helper._
 @import helper.twitterBootstrap._
-@import tags._
 
 <div id="register" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
 
@@ -11,7 +10,7 @@
         <h3 id="registerLabel">Register</h3>
     </div>
 
-    @form(routes.Application.register) {
+    @form(routes.Application.register()) {
         <div class="modal-body">
             <div>
                 @inputText(

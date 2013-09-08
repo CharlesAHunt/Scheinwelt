@@ -1,26 +1,15 @@
-@(uploadForm: Form[File], contracts: List[Contract])
+@(uploadForm: Form[Any])
 
 @import helper._
 @import helper.twitterBootstrap._
 
-@form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
+@form(action = routes.Application.uploadImage(), 'enctype -> "multipart/form-data") {
 <center><h2>Upload a File</h2></center>
     <br>
 
     <div style="text-align: left;">
 
-        &nbsp; <p>1. Choose a template:</p>
-        <div class="row">
-        	<div class="span2"><p>&nbsp;</p></div>
-            <div class="span3">
-                @select(field = uploadForm("contract"), options = options(contracts.toList.map(_.toString)), '_label -> "")
-            </div>
-            <div class="span3" style="margin-top:5px;">
-                <a href='#' class='btn btn-small' id='btn-preview'>View Template Details</a>
-            </div>
-            <div class="span2"><p>&nbsp;</p></div>
-        </div>
-        &nbsp; <p>2. Select a file:</p>
+        &nbsp; <p>2. Select an image:</p>
         <div class="row">
         	<div class="span2"><p>&nbsp;</p></div>
             <div class="span3">
