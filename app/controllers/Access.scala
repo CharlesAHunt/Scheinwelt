@@ -39,14 +39,24 @@ object Access extends Controller {
 
   def logout = Action {
     Redirect(routes.Application.index()).withNewSession.flashing(
-      "success" -> "You are now logged out."
+      "success" -> "You've been logged out"
     )
   }
 
   def getUserName = Action { implicit request =>
 
-    val userName: String = request.session.get("logged_in_user").toString
-    Ok(userName)
+    val body: AnyContent = request.body
+    val textBody: Option[String] = body.asText
+
+    // Expecting text body
+    textBody.map { text =>
+      Ok("Got: " + text)
+    }.getOrElse {
+      BadRequest("Expecting text/plain request body")
+    }
+
+//    val userName: String = request.session.get("logged_in_user").toString
+//    Ok(body.asText.get)
 
   }
 
