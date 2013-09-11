@@ -8,13 +8,14 @@ import com.mongodb.casbah.{MongoCollection, MongoConnection}
 import com.novus.salat.dao.SalatDAO
 import org.bson.types.ObjectId
 import com.mongodb.casbah.commons.MongoDBObject
+import com.novus.salat.annotations.Key
 
 /**
  * User: Charles
  * Date: 7/17/13
  */
 
-case class Group(_id: ObjectId = new ObjectId, name: String, token: String)
+case class Group(@Key("_id") id: ObjectId = new ObjectId, name: String, token: String)
 
 object GroupDAO extends SalatDAO[Group, ObjectId] (  collection = MongoConnection()("database")("group"))    {
 

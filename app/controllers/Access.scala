@@ -6,25 +6,38 @@ import views.html._
 import models.{GroupDAO, Group}
 import play.api.data._
 import play.api.data.Forms._
+import models.Group
+import org.bson.types.ObjectId
 
 object Access extends Controller {
 
-  val loginForm = Form(
-    tuple(
+  val loginForm: Form[Group] = Form(
+    mapping(
+      "id" -> ignored(new ObjectId),
       "name" -> text,
       "token" -> text
-    ) verifying("Invalid username or password", result => result match {
-      case (name, token) => check(name, token)
-    })
+    )(Group.apply)(Group.unapply)
   )
 
-  def check(username: String, password: String) = {
+  val registerForm: Form[Group] = Form(
+    mapping(
+      "id" -> ignored(new ObjectId),
+      "name" -> text,
+      "token" -> text
+    )(Group.apply)(Group.unapply)
+  )
+
+  def checkLogin(username: String, password: String) = {
     GroupDAO.isPasswordCorrect(username,password)
+  }
+
+  def checkRegister(username: String, password: String, email: String) = {
+
   }
 
   def login = Action { implicit request =>
 
-      Ok(views.html.index()).withSession(
+      Ok(views.html.index(loginForm, registerForm)).withSession(
         session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("name").toString)
       )
 
@@ -41,23 +54,6 @@ object Access extends Controller {
     Redirect(routes.Application.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
-  }
-
-  def getUserName = Action { implicit request =>
-
-    val body: AnyContent = request.body
-    val textBody: Option[String] = body.asText
-
-    // Expecting text body
-    textBody.map { text =>
-      Ok("Got: " + text)
-    }.getOrElse {
-      BadRequest("Expecting text/plain request body")
-    }
-
-//    val userName: String = request.session.get("logged_in_user").toString
-//    Ok(body.asText.get)
-
   }
 
   /**

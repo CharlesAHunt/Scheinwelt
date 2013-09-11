@@ -1,4 +1,6 @@
-@()(content: Html)
+@(loginForm: Form[Group], registerForm: Form[Group])(content: Html)
+
+@import tags._
 
 <html>
     <head>
@@ -7,6 +9,7 @@
         <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/main.css")'>
         <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/jumble.png")'>
         <script src='@routes.Assets.at("javascripts/jquery-1.9.0.min.js")' type='text/javascript'></script>
+        <script src='@routes.Assets.at("javascripts/dropdown.js")' type='text/javascript'></script>
     </head>
 
     <body>
@@ -17,7 +20,7 @@
                     <ul class="nav navbar-nav">
                         <li id='index'><a href="./index">Home</a></li>
                         <li id='profile'><a href="./profile">My Group</a></li>
-                        @if(Access.getUserName == null) {
+                        @if(play.api.mvc.Session.apply().data.get("logged_in_user").isEmpty) {
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     Sign In
@@ -31,7 +34,7 @@
                             </li>
                         }  else{
                             <li><a href="./logout">Log Out</a></li>
-                            <li style="margin-left: 300px;"><a>Logged in as: <b>@{Access.getUserName}</b></a></li>
+                            <li style="margin-left: 300px;"><a>Logged in as: <b>@{play.api.mvc.Session.apply().data}</b></a></li>
                         }
                     </ul>
                 </div>
@@ -63,3 +66,6 @@
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </div>
+
+@login(loginForm)
+@register(registerForm)
