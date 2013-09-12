@@ -9,23 +9,7 @@ import play.api.data.Forms._
 import models.Group
 import org.bson.types.ObjectId
 
-object Profile extends Controller {
-
-  val loginForm: Form[Group] = Form(
-    mapping(
-      "id" -> ignored(new ObjectId),
-      "name" -> text,
-      "token" -> text
-    )(Group.apply)(Group.unapply)
-  )
-
-  val registerForm: Form[Group] = Form(
-    mapping(
-      "id" -> ignored(new ObjectId),
-      "name" -> text,
-      "token" -> text
-    )(Group.apply)(Group.unapply)
-  )
+object Profile extends Controller with Access {
 
     def index = Action {
         Ok(views.html.profile(loginForm, registerForm))

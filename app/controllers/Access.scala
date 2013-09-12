@@ -9,7 +9,7 @@ import play.api.data.Forms._
 import models.Group
 import org.bson.types.ObjectId
 
-object Access extends Controller {
+trait Access extends Controller {
 
   val loginForm: Form[Group] = Form(
     mapping(
@@ -42,13 +42,6 @@ object Access extends Controller {
       )
 
   }
-
-  //  def authenticate = Action { implicit request =>
-  //    loginForm.bindFromRequest.fold(
-  //      formWithErrors => BadRequest(views.html.index(formWithErrors)),
-  //      user => Redirect(routes.Application.index).withSession(Security.username -> user._1)
-  //    )
-  //  }
 
   def logout = Action {
     Redirect(routes.Application.index()).withNewSession.flashing(

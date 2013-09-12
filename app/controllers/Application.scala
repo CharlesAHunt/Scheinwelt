@@ -9,35 +9,23 @@ import play.api.data.Forms._
 import models.Group
 import org.bson.types.ObjectId
 
-object Application extends Controller {
-
-  val loginForm: Form[Group] = Form(
-    mapping(
-      "id" -> ignored(new ObjectId),
-      "name" -> text,
-      "token" -> text
-    )(Group.apply)(Group.unapply)
-  )
-
-  val registerForm: Form[Group] = Form(
-    mapping(
-      "id" -> ignored(new ObjectId),
-      "name" -> text,
-      "token" -> text
-    )(Group.apply)(Group.unapply)
-  )
+object Application extends Controller with Access {
 
   def index = Action {
     Ok(views.html.index(loginForm, registerForm))
   }
 
-  def register = Action {
-    Ok(views.html.index(loginForm, registerForm))
+  def register = Action { implicit request =>
+    registerForm.bindFromRequest.fold(
+      formWithErrors => // binding failure, you retrieve the form containing errors,
+        BadRequest(views.html.index(loginForm, formWithErrors)),
+      value => // binding success, you get the actual value
+        Ok(views.html.index(loginForm, registerForm))
+    )
   }
 
   def uploadImage = Action {
     Ok(views.html.index(loginForm, registerForm))
   }
-
 
 }

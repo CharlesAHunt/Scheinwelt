@@ -3,47 +3,46 @@
 @import helper._
 @import helper.twitterBootstrap._
 
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="login">Login</h3>
+            </div>
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Login</h3>
-    </div>
+            <div class="modal-body">
+                @form(routes.Application.login()) {
+                    <fieldset>
+                        @inputText(
+                            loginForm("name"),
+                            '_label -> "Groupname",
+                            '_error -> loginForm.globalError
+                        )
 
-    @form(routes.Access.login()) {
-    <div class="modal-body">
-        <div>
+                        @inputPassword(
+                            loginForm("token"),
+                            '_label -> "Password"
+                        )
+                    </fieldset>
 
-            <fieldset>
-                @inputText(
-                    loginForm("name"),
-                    '_label -> "Username",
-                    '_error -> loginForm.globalError
-                )
+                    <fieldset style="display: inline; margin-bottom: 10px;">
+                        @checkbox(
+                            loginForm("accept"),
+                            '_label -> None, '_text -> "Remember me",
+                            '_showConstraints -> false
+                        )
+                    </fieldset>
 
-                @inputPassword(
-                    loginForm("token"),
-                    '_label -> "Password"
-                )
-            </fieldset>
+                    <a href="#" style="color: blue;margin-left: 1em;">I forgot my password</a>
 
-            <fieldset style="display: inline; margin-bottom: 10px;">
-                @checkbox(
-                    loginForm("accept"),
-                    '_label -> None, '_text -> "Remember me",
-                    '_showConstraints -> false
-                )
-            </fieldset>
-
-            <a href="#" style="color: blue;margin-left: 1em;">I forgot my password</a>
-
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <input type="submit" class="btn btn-large btn-primary" value="Sign In">
+                    </div>
+                }
+            </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <input type="submit" class="btn btn-large btn-primary" value="Sign In">
-    </div>
-    }
 </div>
-
 
