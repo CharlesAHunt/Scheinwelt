@@ -14,23 +14,23 @@
             <div class="modal-body">
                 @form(routes.Application.register()) {
                     @inputText(
-                        registerForm("username"),
+                        registerForm("name"),
                         '_label -> "Username",
                         '_help -> "Please choose a valid username.",
                         '_error -> registerForm.globalError
                     )
 
                     @inputPassword(
-                        registerForm("password"),
+                        registerForm("token"),
                         '_label -> "Password",
                         '_help -> "A password must be at least 6 characters. "
                     )
 
                     @inputPassword(
-                        registerForm("repeatPassword"),
+                        registerForm("token"),
                         '_label -> "Repeat password",
                         '_help -> "Please repeat your password again.",
-                        '_error -> registerForm.error("password")
+                        '_error -> registerForm.error("token")
                     )
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

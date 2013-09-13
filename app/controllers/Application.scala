@@ -16,12 +16,16 @@ object Application extends Controller with Access {
   }
 
   def register = Action { implicit request =>
+    println(registerForm)
     registerForm.bindFromRequest.fold(
-      formWithErrors => // binding failure, you retrieve the form containing errors,
-        BadRequest(views.html.index(loginForm, formWithErrors)),
-      value => // binding success, you get the actual value
-        Ok(views.html.index(loginForm, registerForm))
+      errors => BadRequest(views.html.index(loginForm, registerForm)),
+      group => createGroup(group)
     )
+    Ok(views.html.index(loginForm, registerForm))
+  }
+
+  def createGroup(group: Group) = {
+     println("id, name, token: " +group)
   }
 
   def uploadImage = Action {
