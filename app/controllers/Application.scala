@@ -1,13 +1,7 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
-import views.html._
-import play.api.data.Form
-import models.Group
-import play.api.data.Forms._
-import models.Group
-import org.bson.types.ObjectId
+import models.{GroupDAO, Group}
 
 object Application extends Controller with Access {
 
@@ -16,7 +10,6 @@ object Application extends Controller with Access {
   }
 
   def register = Action { implicit request =>
-    println(registerForm)
     registerForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(loginForm, registerForm)),
       group => createGroup(group)
@@ -26,6 +19,7 @@ object Application extends Controller with Access {
 
   def createGroup(group: Group) = {
      println("id, name, token: " +group)
+     GroupDAO.insert(group)
   }
 
   def uploadImage = Action {

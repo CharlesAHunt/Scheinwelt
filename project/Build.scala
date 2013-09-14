@@ -9,8 +9,8 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     "org.mongodb" %% "casbah" % "2.6.2",
-    "com.novus" %% "salat" % "1.9.2",
-    "org.mongodb" % "mongo-java-driver" % "2.11.2",
+    "org.reactivemongo" %% "reactivemongo" % "0.9",
+    "joda-time" % "joda-time" % "2.3",
     "commons-codec" % "commons-codec" % "1.8"
   )
 

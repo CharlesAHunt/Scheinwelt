@@ -1,40 +1,21 @@
 package models
 
-import java.util.Date
-import utils.DatabaseUtil
-import play.api.libs.Crypto
-import com.novus.salat.global._
-import com.mongodb.casbah.{MongoCollection, MongoConnection}
-import com.novus.salat.dao.SalatDAO
-import org.bson.types.ObjectId
-import com.mongodb.casbah.commons.MongoDBObject
-import com.novus.salat.annotations.Key
+import org.joda.time.DateTime
+import reactivemongo.bson._
 
 /**
  * User: Charles
  * Date: 7/17/13
  */
 
-case class Group(@Key("_id") id: ObjectId = new ObjectId, name: String, token: String)
+case class Group(
+                    id: Option[BSONObjectID],
+                    name: String,
+                    token: String,
+                    creationDate: Option[DateTime],
+                    updateDate: Option[DateTime]
+                    )
 
-object GroupDAO extends SalatDAO[Group, ObjectId] (  collection = MongoConnection()("database")("group"))    {
-
-  def isPasswordCorrect(name: String, passAttempt: String): Boolean = {
-
-    val group = GroupDAO.findOne(MongoDBObject("name" -> name))
-
-    if(group.isEmpty)
-      false
-    else {
-      val groupToVerify: Group = group.get
-      if(Crypto.decryptAES(groupToVerify.token) == passAttempt)
-        true
-      else
-        false
-    }
-  }
-
-}
 
 //  def isNameTaken[T](name: String): Boolean = {
 //    val collection: JacksonDBCollection[Group,_ <: AnyRef] = DatabaseUtil.getCollection("groups", classOf[Group])

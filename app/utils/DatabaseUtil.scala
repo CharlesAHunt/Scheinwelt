@@ -1,26 +1,40 @@
 package utils
 
-import com.mongodb.casbah.Imports._
+import reactivemongo.api._
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object DatabaseUtil {
 
-    def getCollection(collectionName: String) = {
+  def connect(): reactivemongo.api.MongoConnection = {
+    // gets an instance of the driver
+    // (creates an actor system)
+    val driver = new MongoDriver
+    driver.connection(List("localhost"))
+  }
 
-      val mongoClient = MongoClient()
-      val db = mongoClient("database")
-      db(collectionName)
+  def getCollection(collectionName: String) = {
 
-    }
+    // Gets a reference to the database "plugin"
+    val connection = connect()
 
-//    def getEntityById[T](collectionName: String, id: String):Any = {
-//
-//        try {
-//            val coll = db(collectionName)
-//            coll.findOneById(id)
-//        } catch {
-//          case e: Exception => e.printStackTrace()
-//        }
-//
-//    }
+    // Gets a reference to the database "plugin"
+    val db = connection("scheinwelt")
+
+    // Gets a reference to the collection "acoll"
+    // By default, you get a BSONCollection.
+    val collection = db(collectionName)
+
+  }
+
+  //    def getEntityById[T](collectionName: String, id: String):Any = {
+  //
+  //        try {
+  //            val coll = db(collectionName)
+  //            coll.findOneById(id)
+  //        } catch {
+  //          case e: Exception => e.printStackTrace()
+  //        }
+  //
+  //    }
 }
 
