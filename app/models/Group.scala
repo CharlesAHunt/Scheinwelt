@@ -16,6 +16,30 @@ case class Group(
                     updateDate: Option[DateTime]
                     )
 
+object Group {
+
+  implicit object BSONReader extends BSONDocumentReader[Group] {
+    def read( document: BSONDocument ): Group =
+      Group(
+        document.getAs[BSONObjectID]("_id"),
+        document.getAs[String]("name").getOrElse( "" ),
+        document.getAs[String]("token").getOrElse( "" ),
+        document.getAs[DateTime]("creationDate"),
+        document.getAs[DateTime]("updateDate") )
+  }
+
+  implicit object BSONWriter extends BSONDocumentWriter[Group] {
+    def write( group: Group ): BSONDocument =
+      BSONDocument(
+        "_id" -> group.id.getOrElse( BSONObjectID.generate ),
+        "name" -> group.name,
+        "token" -> group.token,
+        "creationDate" -> group.creationDate,
+        "updateDate" -> group.updateDate )
+  }
+
+}
+
 
 //  def isNameTaken[T](name: String): Boolean = {
 //    val collection: JacksonDBCollection[Group,_ <: AnyRef] = DatabaseUtil.getCollection("groups", classOf[Group])

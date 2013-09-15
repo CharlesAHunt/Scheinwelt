@@ -1,9 +1,10 @@
 package controllers
 
 import play.api.mvc._
-import models.{GroupDAO, Group}
+import models.Group
+import utils.DatabaseService
 
-object Application extends Controller with Access {
+object Application extends Controller with Access with DatabaseService {
 
   def index = Action {
     Ok(views.html.index(loginForm, registerForm))
@@ -18,8 +19,8 @@ object Application extends Controller with Access {
   }
 
   def createGroup(group: Group) = {
-     println("id, name, token: " +group)
-     GroupDAO.insert(group)
+    val groups = getCollection("groups")
+    groups.insert(group).map(lastError => println(lastError.ok))
   }
 
   def uploadImage = Action {

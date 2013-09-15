@@ -1,27 +1,30 @@
 package controllers
 
 import play.api.mvc._
-import models.{GroupDAO, Group}
 import play.api.data._
 import play.api.data.Forms._
 import models.Group
-import org.bson.types.ObjectId
+import reactivemongo.bson.BSONObjectID
 
 trait Access extends Controller {
 
   val loginForm: Form[Group] = Form(
     mapping(
-      "id" -> ignored(new ObjectId),
+      "id" -> ignored(BSONObjectID.generate),
       "name" -> text,
-      "token" -> text
+      "token" -> text,
+      "creationDate" -> jodaDate,
+      "updateDate" -> jodaDate
     )(Group.apply)(Group.unapply)
   )
 
   val registerForm: Form[Group] = Form(
     mapping(
-      "id" -> ignored(new ObjectId),
+      "id" -> ignored(BSONObjectID.generate),
       "name" -> text,
-      "token" -> text
+      "token" -> text,
+      "creationDate" -> jodaDate,
+      "updateDate" -> jodaDate
     )(Group.apply)(Group.unapply)
   )
 
