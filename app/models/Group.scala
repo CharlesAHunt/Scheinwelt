@@ -12,9 +12,13 @@ case class Group(
                     id: Option[BSONObjectID],
                     name: String,
                     token: String,
-                    creationDate: Option[DateTime],
-                    updateDate: Option[DateTime]
-                    )
+                    creationDate: Option[BSONDateTime],
+                    updateDate: Option[BSONDateTime]
+                    )  {
+
+  def this(name: String, token: String) = this(Option(BSONObjectID.generate), name, token, Option(BSONDateTime.apply(DateTime.now().getMillis)), Option(BSONDateTime.apply(DateTime.now().getMillis)))
+
+}
 
 object Group {
 
@@ -24,8 +28,8 @@ object Group {
         document.getAs[BSONObjectID]("_id"),
         document.getAs[String]("name").getOrElse( "" ),
         document.getAs[String]("token").getOrElse( "" ),
-        document.getAs[DateTime]("creationDate"),
-        document.getAs[DateTime]("updateDate") )
+        document.getAs[BSONDateTime]("creationDate"),
+        document.getAs[BSONDateTime]("updateDate") )
   }
 
   implicit object BSONWriter extends BSONDocumentWriter[Group] {
@@ -35,7 +39,7 @@ object Group {
         "name" -> group.name,
         "token" -> group.token,
         "creationDate" -> group.creationDate,
-        "updateDate" -> group.updateDate )
+        "updateDate" -> BSONDateTime.apply(DateTime.now().getMillis) )
   }
 
 }

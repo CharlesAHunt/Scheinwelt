@@ -4,28 +4,31 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import models.Group
-import reactivemongo.bson.BSONObjectID
 
 trait Access extends Controller {
 
   val loginForm: Form[Group] = Form(
     mapping(
-      "id" -> ignored(BSONObjectID.generate),
       "name" -> text,
-      "token" -> text,
-      "creationDate" -> jodaDate,
-      "updateDate" -> jodaDate
-    )(Group.apply)(Group.unapply)
+      "token" -> text
+    )(
+      (name, token) =>
+        new Group(name, token)
+    )(
+      (group: Group) => Option(group.name, group.token)
+    )
   )
 
   val registerForm: Form[Group] = Form(
     mapping(
-      "id" -> ignored(BSONObjectID.generate),
       "name" -> text,
-      "token" -> text,
-      "creationDate" -> jodaDate,
-      "updateDate" -> jodaDate
-    )(Group.apply)(Group.unapply)
+      "token" -> text
+    )(
+      (name, token) =>
+        new Group(name, token)
+    )(
+      (group: Group) => Option(group.name, group.token)
+    )
   )
 
   def checkLogin(username: String, password: String) = {

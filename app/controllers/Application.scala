@@ -3,6 +3,7 @@ package controllers
 import play.api.mvc._
 import models.Group
 import utils.DatabaseService
+import play.api.libs.concurrent.Execution.Implicits._
 
 object Application extends Controller with Access with DatabaseService {
 
