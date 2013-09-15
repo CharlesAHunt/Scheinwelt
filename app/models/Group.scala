@@ -16,7 +16,8 @@ case class Group(
                     updateDate: Option[BSONDateTime]
                     )  {
 
-  def this(name: String, token: String) = this(Option(BSONObjectID.generate), name, token, Option(BSONDateTime.apply(DateTime.now().getMillis)), Option(BSONDateTime.apply(DateTime.now().getMillis)))
+  def this(name: String, token: String) = this(
+    Option(BSONObjectID.generate), name, token, Option(BSONDateTime.apply(DateTime.now().getMillis)), Option(BSONDateTime.apply(DateTime.now().getMillis)))
 
 }
 
