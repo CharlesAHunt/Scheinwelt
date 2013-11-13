@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.Group
+import models.Log
 
 trait Access extends Controller {
 
