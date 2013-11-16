@@ -3,36 +3,36 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.Log
+import models.User
 
 trait Access extends Controller {
 
-  val loginForm: Form[Group] = Form(
+  val loginForm: Form[User] = Form(
     mapping(
       "name" -> text,
       "token" -> text
     )(
       (name, token) =>
-        new Group(name, token)
+        new User(name, token)
     )(
-      (group: Group) => Option(group.name, group.token)
+      (user: User) => Option(user.name, user.token)
     )
   )
 
-  val registerForm: Form[Group] = Form(
+  val registerForm: Form[User] = Form(
     mapping(
       "name" -> text,
       "token" -> text
     )(
       (name, token) =>
-        new Group(name, token)
+        new User(name, token)
     )(
-      (group: Group) => Option(group.name, group.token)
+      (user: User) => Option(user.name, user.token)
     )
   )
 
   def checkLogin(username: String, password: String) = {
-//    GroupDAO.isPasswordCorrect(username,password)
+//    UserDAO.isPasswordCorrect(username,password)
   }
 
   def checkRegister(username: String, password: String, email: String) = {

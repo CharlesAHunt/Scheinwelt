@@ -11,18 +11,19 @@ import mongoContext._
 
 case class Log(
                  id: ObjectId = new ObjectId,
-                 username: String,
-                 password: String,
+                 exception: String,
+                 message: String,
+                 trace: String,
                  address: Option[Address] = None,
                  added: Date = new Date(),
-                 updated: Option[Date] = None,
+                 logDate: Option[Date] = None,
                  deleted: Option[Date] = None,
                  @Key("company_id")company: Option[ObjectId] = None
-                 )
+              )
 
-object Log extends ModelCompanion[User, ObjectId] {
-  val dao = new SalatDAO[User, ObjectId](collection = mongoCollection("users")) {}
+object Log extends ModelCompanion[Log, ObjectId] {
 
-  def findOneByUsername(username: String): Option[User] = dao.findOne(MongoDBObject("username" -> username))
-  def findByCountry(country: String) = dao.find(MongoDBObject("address.country" -> country))
+  val dao = new SalatDAO[Log, ObjectId](collection = mongoCollection("logs")) {}
+  def findByException(exception: String) = dao.find(MongoDBObject("exception" -> exception))
+
 }
