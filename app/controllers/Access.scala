@@ -3,7 +3,9 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.User
+import models.{UserDAO, User}
+import com.novus.salat._
+import com.novus.salat.global.ctx
 
 trait Access extends Controller {
 
@@ -13,9 +15,9 @@ trait Access extends Controller {
       "token" -> text
     )(
       (name, token) =>
-        new User(name, token)
+        User(username = name, password = token)
     )(
-      (user: User) => Option(user.name, user.token)
+      (user: User) => Option(user.username, user.password)
     )
   )
 
@@ -25,9 +27,9 @@ trait Access extends Controller {
       "token" -> text
     )(
       (name, token) =>
-        new User(name, token)
+        User(username = name, password = token)
     )(
-      (user: User) => Option(user.name, user.token)
+      (user: User) => Option(user.username, user.password)
     )
   )
 

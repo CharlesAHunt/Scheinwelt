@@ -1,29 +1,23 @@
 package models
 
-import play.api.Play.current
-import java.util.Date
 import com.novus.salat._
-import com.novus.salat.annotations._
-import com.novus.salat.dao._
-import com.mongodb.casbah.Imports._
-import se.radley.plugin.salat._
-import mongoContext._
+import com.novus.salat.global._
+import java.util.Date
+import org.bson.types.ObjectId
+import com.novus.salat.dao.{SalatDAO, ModelCompanion}
+import com.mongodb.casbah.commons.MongoDBObject
+import utils.DatabaseService
 
-case class Log(
-                 id: ObjectId = new ObjectId,
+case class Log(id: ObjectId = new ObjectId,
                  exception: String,
                  message: String,
+                 level: String,
                  trace: String,
-                 address: Option[Address] = None,
-                 added: Date = new Date(),
-                 logDate: Option[Date] = None,
-                 deleted: Option[Date] = None,
-                 @Key("company_id")company: Option[ObjectId] = None
-              )
+                 logDate: Option[Date] = None)
 
-object Log extends ModelCompanion[Log, ObjectId] {
+object LogDAO extends ModelCompanion[Log, ObjectId] with DatabaseService {
 
-  val dao = new SalatDAO[Log, ObjectId](collection = mongoCollection("logs")) {}
+  val dao = new SalatDAO[Log, ObjectId](collection = getCollection("logs")) {}
   def findByException(exception: String) = dao.find(MongoDBObject("exception" -> exception))
 
 }

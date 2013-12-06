@@ -1,26 +1,22 @@
 package models
 
-import play.api.Play.current
-import java.util.Date
 import com.novus.salat._
-import com.novus.salat.annotations._
-import com.novus.salat.dao._
-import com.mongodb.casbah.Imports._
-import se.radley.plugin.salat._
-import mongoContext._
+import com.novus.salat.global._
+import java.util.Date
+import org.bson.types.ObjectId
+import com.novus.salat.dao.{SalatDAO, ModelCompanion}
+import com.mongodb.casbah.commons.MongoDBObject
+import utils.DatabaseService
 
 case class User(
                  id: ObjectId = new ObjectId,
                  username: String,
                  password: String,
-                 added: Date = new Date(),
-                 updated: Option[Date] = None,
-                 deleted: Option[Date] = None,
-                 @Key("company_id")company: Option[ObjectId] = None
+                 added: Date = new Date()
                  )
 
-object User extends ModelCompanion[User, ObjectId] {
-  val dao = new SalatDAO[User, ObjectId](collection = mongoCollection("users")) {}
+object UserDAO extends ModelCompanion[User, ObjectId] with DatabaseService {
+  val dao = new SalatDAO[User, ObjectId](collection = getCollection("users")) {}
 
   def findOneByUsername(username: String): Option[User] = dao.findOne(MongoDBObject("username" -> username))
 }

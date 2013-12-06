@@ -1,4 +1,4 @@
-@(loginForm: Form[Group])
+@(loginForm: Form[User])
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -16,7 +16,7 @@
                     <fieldset>
                         @inputText(
                             loginForm("name"),
-                            '_label -> "Groupname",
+                            '_label -> "username",
                             '_error -> loginForm.globalError
                         )
 

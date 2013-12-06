@@ -1,4 +1,4 @@
-name := "scheinwelt"
+name := "log.ic"
 
 version := "0.3.0"
 
