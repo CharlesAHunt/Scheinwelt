@@ -2,6 +2,7 @@ package utils
 
 import com.mongodb.casbah.Imports._
 
+
 trait DatabaseService {
 
   //todo: move connection information into application.conf
