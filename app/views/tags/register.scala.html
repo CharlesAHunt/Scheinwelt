@@ -1,4 +1,4 @@
-@(registerForm: Form[User])
+@(registerForm: play.api.data.Form[User])
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -14,20 +14,20 @@
             <div class="modal-body">
                 @form(routes.Application.register()) {
                     @inputText(
-                        registerForm("name"),
+                        registerForm("username"),
                         '_label -> "Username",
                         '_help -> "Please choose a valid username.",
                         '_error -> registerForm.globalError
                     )
 
                     @inputPassword(
-                        registerForm("token"),
+                        registerForm("password"),
                         '_label -> "Password",
                         '_help -> "A password must be at least 6 characters. "
                     )
 
                     @inputPassword(
-                        registerForm("token"),
+                        registerForm("password"),
                         '_label -> "Repeat password",
                         '_help -> "Please repeat your password again.",
                         '_error -> registerForm.error("token")

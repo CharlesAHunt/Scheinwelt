@@ -3,9 +3,7 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.{UserDAO, User}
-import com.novus.salat._
-import com.novus.salat.global.ctx
+import models.User
 
 trait Access extends Controller {
 
@@ -23,11 +21,11 @@ trait Access extends Controller {
 
   val registerForm: Form[User] = Form(
     mapping(
-      "name" -> text,
-      "token" -> text
+      "username" -> text,
+      "password" -> text
     )(
-      (name, token) =>
-        User(username = name, password = token)
+      (username, password) =>
+        User(username = username, password = password)
     )(
       (user: User) => Option(user.username, user.password)
     )
