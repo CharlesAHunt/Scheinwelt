@@ -1,7 +1,6 @@
 @(registerForm: play.api.data.Form[User])
 
 @import helper._
-@import helper.twitterBootstrap._
 
 <div id="register" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="register" aria-hidden="true">
     <div class="modal-dialog">
@@ -12,7 +11,7 @@
             </div>
 
             <div class="modal-body">
-                @form(routes.Application.register()) {
+                @form(routes.Search.register()) {
                     @inputText(
                         registerForm("username"),
                         '_label -> "Username",

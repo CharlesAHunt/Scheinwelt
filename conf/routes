@@ -1,14 +1,15 @@
 # Routes
-# This file defines all application routes (Higher priority routes first)
+# This file defines all Application routes (Higher priority routes first)
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index()
-GET         /index               controllers.Application.index()
-POST        /login               controllers.Application.login()
-GET         /logout              controllers.Application.logout()
-POST        /register            controllers.Application.register()
-POST        /uploadImage         controllers.Application.uploadImage()
+GET         /                    controllers.Search.index()
+GET         /index               controllers.Search.index()
+GET         /search              controllers.Search.search()
+POST        /login               controllers.Search.login()
+GET         /logout              controllers.Search.logout()
+POST        /register            controllers.Search.register()
+POST        /uploadImage         controllers.Profile.uploadImage()
 
 GET         /profile             controllers.Profile.index()
 

@@ -3,9 +3,11 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.User
+import models.{Log, User}
+import com.mongodb.casbah.commons.MongoDBObject
+import utils.{DatabaseService, EncryptionUtil}
 
-trait Access extends Controller {
+trait Access extends Controller with DatabaseService {
 
   val loginForm: Form[User] = Form(
     mapping(
@@ -31,6 +33,22 @@ trait Access extends Controller {
     )
   )
 
+  val searchForm: Form[Log] = Form(
+    mapping(
+      "environment" -> text,
+      "region" -> text,
+      "application" -> text,
+      "exception" -> text,
+      "message" -> text,
+      "level" -> text
+    )(
+        (environment, region, application, exception, message, level) =>
+          Log(environment = environment, region = region, application = application, exception = exception, message = message, level = level, trace = "")
+      )(
+        (log: Log) => Option(log.environment, log.region, log.application, log.exception, log.message, log.level)
+      )
+  )
+
   def checkLogin(username: String, password: String) = {
 //    UserDAO.isPasswordCorrect(username,password)
   }
@@ -39,16 +57,31 @@ trait Access extends Controller {
 
   }
 
+  def register = Action { implicit request =>
+    registerForm.bindFromRequest.fold(
+      errors => BadRequest(views.html.index(loginForm, registerForm, searchForm)),
+      user => {
+        val a = MongoDBObject("username" -> user.username, "password" -> EncryptionUtil.encrypt(user.password))
+        getCollection("users").insert(a)
+      }
+    )
+
+    Redirect("/index").flashing(
+      "success" -> "You have successfully registered. You may now log in."
+    )
+  }
+
+
   def login = Action { implicit request =>
 
-      Ok(views.html.index(loginForm, registerForm)).withSession(
+      Ok(views.html.index(loginForm, registerForm, searchForm)).withSession(
         session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("name").toString)
       )
 
   }
 
   def logout = Action {
-    Redirect(routes.Application.index()).withNewSession.flashing(
+    Redirect(routes.Search.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
   }
@@ -56,7 +89,7 @@ trait Access extends Controller {
   /**
    * Redirect to login if the user in not authorized.
    */
-  private def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.index())
+  private def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Search.index())
 
   // --
 

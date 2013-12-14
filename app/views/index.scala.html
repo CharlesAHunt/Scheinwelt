@@ -1,11 +1,34 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Log])(implicit flash: play.api.mvc.Flash)
+
+@import helper._
+@import enums._
 
 @main(loginForm, registerForm) {
 
     <div class="jumbotron">
         <h1>Log.ic</h1>
         <p class="lead"> Find logs </p>
-        <a class="btn btn-large btn-success" href="./profile">Get started</a>
+
+        @form(controllers.routes.Search.search()){
+            <fieldset>
+                @select(field = searchForm("environment"), options = options(
+                EnvironmentEnum.values.toList.map(_.toString)),
+                '_label-> "", '_default -> "-- Choose Environment --", 'style -> "display:none", 'id -> "environment")
+
+                @select(field = searchForm("region"), options = options(
+                controllers.Region.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
+
+                @select(field = searchForm("application"), options = options(
+                controllers.Application.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
+
+                @select(field = searchForm("level"), options = options(
+                LogLevelEnum.values.toList.map(_.toString)),
+                '_label-> "", '_default -> "-- Choose Log Level --", 'style -> "display:none", 'id -> "level")
+
+            </fieldset>
+            <input type="submit" class="btn btn-lg btn-success" value="Search">
+        }
+
     </div>
 
     <div class="container">

@@ -1,4 +1,4 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])(content: Html)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])(content: Html)(implicit flash: play.api.mvc.Flash)
 
 @import tags._
 
@@ -40,7 +40,7 @@
                     </ul>
                 </div>
             </nav>
-
+            @message()
             @content
 
             <div class="footer">

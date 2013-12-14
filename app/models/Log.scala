@@ -1,11 +1,14 @@
 package models
 
-import java.util.Date
+import org.bson.types.BSONTimestamp
 
 case class Log(
-                 exception: String,
-                 message: String,
-                 level: String,
-                 trace: String,
-                 logDate: Option[Date] = None)
+              environment: String,
+              region: String,
+              application: String,
+              exception: String,
+              message: String,
+              level: String,
+              trace: String,
+              timeStamp: Option[BSONTimestamp] = None)
 
