@@ -1,22 +1,27 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Log])(implicit flash: play.api.mvc.Flash)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Log])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
 
 @import helper._
 @import enums._
 
 @main(loginForm, registerForm) {
 
-    <div class="jumbotron">
-        <h1>Log.ic</h1>
-        <p class="lead"> Find logs </p>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
+        </div>
+        <div class="col-md-4">
+            <h1>Log.ic</h1>
+            <p class="lead"> Find logs </p>
 
-        @form(controllers.routes.Search.search()){
+            @form(controllers.routes.Search.search()){
             <fieldset>
                 @select(field = searchForm("environment"), options = options(
                 EnvironmentEnum.values.toList.map(_.toString)),
                 '_label-> "", '_default -> "-- Choose Environment --", 'style -> "display:none", 'id -> "environment")
 
                 @select(field = searchForm("region"), options = options(
-                controllers.Region.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
+                controllers.Environment.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
 
                 @select(field = searchForm("application"), options = options(
                 controllers.Application.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
@@ -27,7 +32,12 @@
 
             </fieldset>
             <input type="submit" class="btn btn-lg btn-success" value="Search">
-        }
+            }
+        </div>
+        <div class="col-md-4">
+            <canvas id="myChart2" width="250" height="250"></canvas>
+        </div>
+    </div>
 
     </div>
 
@@ -52,3 +62,62 @@
     </div>
 
 }
+
+        <script type="text/javascript">
+
+            var chartData = [
+                {
+                    value : Math.random(),
+                    color: "#D97041"
+                },
+                {
+                    value : Math.random(),
+                    color: "#C7604C"
+                },
+                {
+                    value : Math.random(),
+                    color: "#21323D"
+                },
+                {
+                    value : Math.random(),
+                    color: "#9D9B7F"
+                },
+                {
+                    value : Math.random(),
+                    color: "#7D4F6D"
+                },
+                {
+                    value : Math.random(),
+                    color: "#584A5E"
+                }
+            ];
+
+            var radarChartData = {
+                labels : ["Fatal","Error","Warning","Info","Debug","Trace","Severe"],
+                datasets : [
+                    {
+                        fillColor : "rgba(220,220,220,0.5)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                        fillColor : "rgba(151,187,205,0.5)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        data : [28,48,40,19,96,27,100]
+                    }
+                ]
+
+            }
+
+
+            var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).PolarArea(chartData);
+            var myRadarArea = new Chart($("#myChart2").get(0).getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
+
+
+
+
+        </script>

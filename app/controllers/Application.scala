@@ -49,7 +49,7 @@ object Application extends Controller with DatabaseService {
 //  }
 
   def getAll(): List[Imports.DBObject] = {
-    getCollection("users").find().toList
+    getCollection("applications").find().toList
   }
 
 

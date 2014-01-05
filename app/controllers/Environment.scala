@@ -9,7 +9,7 @@ import models.User
 import com.mongodb.casbah.Imports
 
 
-object Region extends Controller with DatabaseService {
+object Environment extends Controller with DatabaseService {
 
   val createForm: Form[User] = Form(
     mapping(
@@ -48,7 +48,7 @@ object Region extends Controller with DatabaseService {
   //  }
 
   def getAll(): List[Imports.DBObject] = {
-    getCollection("users").find().toList
+    getCollection("environments").find().toList
   }
 
 }
