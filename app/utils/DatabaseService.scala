@@ -12,7 +12,7 @@ trait DatabaseService {
   def getCollection(collectionName: String): MongoCollection = {
 //    val db = mongoClient("logicdb")
     val db = mongoConn("heroku_app20997644")
-    mongoConn.authenticate("logicuser", "philo123")
+    db.authenticate("logicuser", "philo123")
     // Gets a reference to the collection
     // By default, you get a BSONCollection.
     db(collectionName)
