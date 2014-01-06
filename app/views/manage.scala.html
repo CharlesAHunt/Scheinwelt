@@ -1,0 +1,59 @@
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], appForm: play.api.data.Form[Application], envForm: play.api.data.Form[Environment])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
+
+@import helper._
+
+@main(loginForm, registerForm) {
+
+    <h2>Manage</h2>
+
+@form(routes.Search.register()) {
+@inputText(
+envForm("username"),
+'_label -> "Username",
+'_help -> "Please choose a valid username.",
+'_error -> registerForm.globalError
+)
+
+@inputPassword(
+envForm("password"),
+'_label -> "Password",
+'_help -> "A password must be at least 6 characters. "
+)
+
+@inputPassword(
+envForm("password"),
+'_label -> "Repeat password",
+'_help -> "Please repeat your password again.",
+'_error -> registerForm.error("token")
+)
+
+<input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
+
+}
+
+@form(routes.Search.register()) {
+@inputText(
+appForm("username"),
+'_label -> "Username",
+'_help -> "Please choose a valid username.",
+'_error -> registerForm.globalError
+)
+
+@inputPassword(
+appForm("password"),
+'_label -> "Password",
+'_help -> "A password must be at least 6 characters. "
+)
+
+@inputPassword(
+appForm("password"),
+'_label -> "Repeat password",
+'_help -> "Please repeat your password again.",
+'_error -> registerForm.error("token")
+)
+
+<input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
+
+}
+
+}

@@ -20,11 +20,11 @@
                 EnvironmentEnum.values.toList.map(_.toString)),
                 '_label-> "", '_default -> "-- Choose Environment --", 'style -> "display:none", 'id -> "environment")
 
-                @select(field = searchForm("region"), options = options(
-                controllers.Environment.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
+                @select(field = searchForm("environment"), options = options(
+                controllers.Manage.getEnvironments().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
 
                 @select(field = searchForm("application"), options = options(
-                controllers.Application.getAll().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
+                controllers.Manage.getApplications().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
 
                 @select(field = searchForm("level"), options = options(
                 LogLevelEnum.values.toList.map(_.toString)),

@@ -22,7 +22,7 @@
                     <a class="navbar-brand" href="./index">Log</a>
                     <ul class="nav navbar-nav">
                         <li id='index'><a href="./index">Home</a></li>
-                        <li id='profile'><a href="./profile">Manage</a></li>
+                        <li id='manage'><a href="./manage">Manage</a></li>
                         @if(session.get("logged_in_user").isEmpty) {
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -36,7 +36,7 @@
                             </li>
                         }  else{
                             <li><a href="./logout">Log Out</a></li>
-                            <li style="margin-left: 300px;"><a>Logged in as: <b>@{play.api.mvc.Session.apply().data}</b></a></li>
+                            <li style="margin-left: 300px;"><a>Logged in as: <b>@session.get("logged_in_user")</b></a></li>
                         }
                     </ul>
                 </div>

@@ -74,8 +74,10 @@ trait Access extends Controller with DatabaseService {
 
   def login = Action { implicit request =>
 
-      Ok(views.html.index(loginForm, registerForm, searchForm)).withSession(
-        session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("name").toString)
+    Redirect("/index").withSession(
+      session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("name").get)
+    ).flashing(
+        "success" -> "You are now logged in."
       )
 
   }

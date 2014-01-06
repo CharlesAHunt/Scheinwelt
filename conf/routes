@@ -9,9 +9,8 @@ GET         /search              controllers.Search.search()
 POST        /login               controllers.Search.login()
 GET         /logout              controllers.Search.logout()
 POST        /register            controllers.Search.register()
-POST        /uploadImage         controllers.Profile.uploadImage()
 
-GET         /profile             controllers.Profile.index()
+GET         /manage             controllers.Manage.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
