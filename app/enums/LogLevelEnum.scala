@@ -2,6 +2,6 @@ package enums
 
 object LogLevelEnum extends Enumeration {
 
-  val Mon, Tue, Wed, Thu, Fri, Sat, Sun = Value
+  val SEVERE, FATAL, ERROR, WARN, DEBUG, INFO, TRACE = Value
 
 }

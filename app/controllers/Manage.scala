@@ -39,6 +39,10 @@ object Manage extends Controller with Access {
   }
 
   def getApplications(): List[Imports.DBObject] = {
+    getCollection("regions").find().toList
+  }
+
+  def getRegions(): List[Imports.DBObject] = {
     getCollection("applications").find().toList
   }
 
