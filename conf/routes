@@ -6,11 +6,14 @@
 GET         /                    controllers.Search.index()
 GET         /index               controllers.Search.index()
 GET         /search              controllers.Search.search()
-POST        /login               controllers.Search.login()
-GET         /logout              controllers.Search.logout()
-POST        /register            controllers.Search.register()
+POST        /login               controllers.Access.login()
+GET         /logout              controllers.Access.logout()
+POST        /register            controllers.Access.register()
 
-GET         /manage             controllers.Manage.index()
+GET         /manage                 controllers.Manage.index()
+POST        /manage/app/create      controllers.Manage.createApplication()
+POST        /manage/env/create      controllers.Manage.createEnvironment()
+POST        /manage/region/create   controllers.Manage.createRegion()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

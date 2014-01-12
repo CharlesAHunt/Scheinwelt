@@ -1,4 +1,4 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Log])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Search.LogSearch])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
 
 @import helper._
 @import enums._
@@ -16,19 +16,32 @@
 
             @form(controllers.routes.Search.search()){
             <fieldset>
+
+                @select(field = searchForm("application"), options = options(
+                controllers.Manage.getApplications().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
+
                 @select(field = searchForm("environment"), options = options(
                 controllers.Manage.getEnvironments().map(_.toString)), '_label-> "", '_default -> "-- Choose Environment --")
 
                 @select(field = searchForm("region"), options = options(
                 controllers.Manage.getRegions().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
 
-                @select(field = searchForm("application"), options = options(
-                controllers.Manage.getApplications().map(_.toString)), '_label-> "", '_default -> "-- Choose Application --")
-
                 @select(field = searchForm("level"), options = options(
                 LogLevelEnum.values.toList.map(_.toString)),
                 '_label-> "", '_default -> "-- Choose Log Level --", 'id -> "level")
 
+                @inputPassword(
+                loginForm("exception"),
+                '_label -> "Exception"
+                )
+                @inputPassword(
+                loginForm("message"),
+                '_label -> "Message"
+                )
+                @inputPassword(
+                loginForm("date"),
+                '_label -> "Date"
+                )
             </fieldset>
             <input type="submit" class="btn btn-lg btn-success" value="Search">
             }

@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.{Log, User}
+import models.User
 import com.mongodb.casbah.commons.MongoDBObject
 import utils.{DatabaseService, EncryptionUtil}
 
@@ -33,22 +33,6 @@ trait Access extends Controller with DatabaseService {
     )
   )
 
-  val searchForm: Form[Log] = Form(
-    mapping(
-      "environment" -> text,
-      "region" -> text,
-      "application" -> text,
-      "exception" -> text,
-      "message" -> text,
-      "level" -> text
-    )(
-        (environment, region, application, exception, message, level) =>
-          Log(environment = environment, region = region, application = application, exception = exception, message = message, level = level, trace = "")
-      )(
-        (log: Log) => Option(log.environment, log.region, log.application, log.exception, log.message, log.level)
-      )
-  )
-
   def checkLogin(username: String, password: String) = {
 //    UserDAO.isPasswordCorrect(username,password)
   }
@@ -57,9 +41,32 @@ trait Access extends Controller with DatabaseService {
 
   }
 
+
+
+  /**
+   * Redirect to login if the user in not authorized.
+   */
+  private def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Search.index())
+
+  // --
+
+  /**
+   * Action for authenticated users.
+   */
+//  def IsAuthenticated(f: => String => Request[AnyContent] => Result) = Security.Authenticated(username, onUnauthorized) {
+//    user =>
+//      Action(request => f(user)(request))
+//  }
+
+}
+
+object Access extends Controller with Access {
+
   def register = Action { implicit request =>
     registerForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.index(loginForm, registerForm, searchForm)),
+      errors => {    Redirect("/index").flashing(
+        "error" -> "There were errors in your registration form."
+      )},
       user => {
         val a = MongoDBObject("username" -> user.username, "password" -> EncryptionUtil.encrypt(user.password))
         getCollection("users").insert(a)
@@ -83,24 +90,8 @@ trait Access extends Controller with DatabaseService {
   }
 
   def logout = Action {
-    Redirect(routes.Search.index()).withNewSession.flashing(
+    Redirect("/index").withNewSession.flashing(
       "success" -> "You've been logged out"
     )
   }
-
-  /**
-   * Redirect to login if the user in not authorized.
-   */
-  private def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Search.index())
-
-  // --
-
-  /**
-   * Action for authenticated users.
-   */
-//  def IsAuthenticated(f: => String => Request[AnyContent] => Result) = Security.Authenticated(username, onUnauthorized) {
-//    user =>
-//      Action(request => f(user)(request))
-//  }
-
 }
