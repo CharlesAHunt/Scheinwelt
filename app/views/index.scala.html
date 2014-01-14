@@ -30,18 +30,18 @@
                 LogLevelEnum.values.toList.map(_.toString)),
                 '_label-> "", '_default -> "-- Choose Log Level --", 'id -> "level")
 
-                @inputPassword(
-                loginForm("exception"),
+                <span style="display: none">@inputText(
+                searchForm("exception"),
                 '_label -> "Exception"
-                )
-                @inputPassword(
-                loginForm("message"),
+                )</span>
+                <span style="display: none">@inputText(
+                searchForm("message"),
                 '_label -> "Message"
-                )
-                @inputPassword(
-                loginForm("date"),
+                )</span>
+                <span style="display: none">@inputText(
+                searchForm("date"),
                 '_label -> "Date"
-                )
+                )</span>
             </fieldset>
             <input type="submit" class="btn btn-lg btn-success" value="Search">
             }
@@ -77,35 +77,8 @@
 
         <script type="text/javascript">
 
-            var chartData = [
-                {
-                    value : Math.random(),
-                    color: "#D97041"
-                },
-                {
-                    value : Math.random(),
-                    color: "#C7604C"
-                },
-                {
-                    value : Math.random(),
-                    color: "#21323D"
-                },
-                {
-                    value : Math.random(),
-                    color: "#9D9B7F"
-                },
-                {
-                    value : Math.random(),
-                    color: "#7D4F6D"
-                },
-                {
-                    value : Math.random(),
-                    color: "#584A5E"
-                }
-            ];
-
-            var radarChartData = {
-                labels : ["Fatal","Error","Warning","Info","Debug","Trace","Severe"],
+            var data = {
+                labels : ["January","February","March","April","May","June","July"],
                 datasets : [
                     {
                         fillColor : "rgba(220,220,220,0.5)",
@@ -122,11 +95,31 @@
                         data : [28,48,40,19,96,27,100]
                     }
                 ]
+            }
+
+            var radarChartData = {
+                labels : ["Fatal","Error","Warning","Info","Debug","Trace","Severe"],
+                datasets : [
+                    {
+                        fillColor : "rgba(220,220,220,0.5)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                        fillColor : "rgba(205,152,161,0.5)",
+                        strokeColor : "rgba(205,152,161,1)",
+                        pointColor : "rgba(205,152,161,1)",
+                        pointStrokeColor : "#fff",
+                        data : [28,48,40,19,96,27,100]
+                    }
+                ]
 
             }
 
 
-            var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).PolarArea(chartData);
+            var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).Line(data);
             var myRadarArea = new Chart($("#myChart2").get(0).getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
 
 

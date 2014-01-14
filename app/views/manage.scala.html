@@ -30,7 +30,7 @@
                 @inputText(
                 envForm("name"),
                 '_label -> "Name",
-                '_help -> "Please choose an application name."
+                '_help -> "Please choose an environment name."
                 )
                 <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
             }
@@ -39,7 +39,7 @@
                 @inputText(
                 regionForm("name"),
                 '_label -> "Name",
-                '_help -> "Please choose an application name."
+                '_help -> "Please choose a region name."
                 )
                 <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
             }
@@ -49,6 +49,7 @@
 
     <div class="row">
         <div class="well">
+            Applications
             <table class="table table-striped table-hover">
                 @if(applicationList.isEmpty) {
                 <div class="alert alert-info">There are none created</div>
@@ -67,6 +68,7 @@
             </table>
         </div>
         <div class="well">
+            Environments
             <table class="table table-striped table-hover">
                 @if(environmentList.isEmpty) {
                 <div class="alert alert-info">There are none created</div>
@@ -85,6 +87,7 @@
             </table>
         </div>
         <div class="well">
+            Regions
             <table class="table table-striped table-hover">
                 @if(regionList.isEmpty) {
                 <div class="alert alert-info">There are none created</div>
