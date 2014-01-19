@@ -10,11 +10,11 @@
         <div class="col-md-4">
             <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" ng-controller="LogicController">
             <h1>Log.ic</h1>
             <p class="lead"> Find logs </p>
 
-            <div class="check-element animate-show" ng-hide="clicked">
+            <div ng-hide="search">
 
                 @form(controllers.routes.Search.search()){
                 <fieldset>
@@ -45,10 +45,15 @@
                         '_label -> "Date"
                     )</span>
                 </fieldset>
-                <a type="submit" class="btn btn-lg btn-success" ng-model="clicked">Search</a>
+                <a class="btn btn-lg btn-success" ng-click="search=!search">Search</a>
                 }
 
             </div>
+
+            <div ng-show="search">
+                <div class="well">Search Results will load asynchronously here</div>
+            </div>
+
 
         </div>
         <div class="col-md-4">
@@ -63,17 +68,17 @@
             <div class="col-md-3 col-md-offset-2">
                 <h2>Precog</h2>
                 <p> Predict failure </p>
-                <p><a class="btn btn-lg btn-primary" href="#">go &raquo;</a></p>
+                <p><a class="btn btn-lg btn-primary" href="./precog">go &raquo;</a></p>
             </div>
             <div class="col-md-3">
                 <h2>Notify</h2>
                 <p> Notification Triggers </p>
-                <p><a class="btn btn-lg btn-primary" href="#">go &raquo;</a></p>
+                <p><a class="btn btn-lg btn-primary" href="./notify">go &raquo;</a></p>
             </div>
             <div class="col-md-3">
                 <h2>Metrics</h2>
                 <p> Behavior and performance </p>
-                <p><a class="btn btn-lg btn-primary" href="#">go &raquo;</a></p>
+                <p><a class="btn btn-lg btn-primary" href="./metrics">go &raquo;</a></p>
             </div>
         </div>
     </div>
