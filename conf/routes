@@ -15,5 +15,9 @@ POST        /manage/app/create      controllers.Manage.createApplication()
 POST        /manage/env/create      controllers.Manage.createEnvironment()
 POST        /manage/region/create   controllers.Manage.createRegion()
 
+GET         /notify                 controllers.Notify.index()
+GET         /metrics                controllers.Metrics.index()
+GET         /precog                 controllers.Precog.index()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

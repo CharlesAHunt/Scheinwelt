@@ -9,7 +9,7 @@ case class Application (_id: ObjectId = new ObjectId,
                           name: String,
                           environment: String,
                           region: String,
-                          logs: Logs
+                          logList: List[String]
                          )
 
 object ApplicationDAO extends SalatDAO[Application, ObjectId] (

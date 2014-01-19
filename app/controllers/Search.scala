@@ -4,6 +4,8 @@ import play.api.mvc._
 import utils.DatabaseService
 import play.api.data.Form
 import play.api.data.Forms._
+import models.{LogDAO, Log}
+import com.mongodb.casbah.commons.MongoDBObject
 
 object Search extends Controller with Access with DatabaseService {
 
@@ -33,5 +35,9 @@ object Search extends Controller with Access with DatabaseService {
         (logSearch: LogSearch) => Option(logSearch.environment, logSearch.region, logSearch.application, logSearch.exception, logSearch.message, logSearch.level, logSearch.date)
       )
   )
+
+  def searchResults(): List[Log] = {
+    LogDAO.find(ref = MongoDBObject()).toList
+  }
 
 }

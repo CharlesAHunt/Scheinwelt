@@ -7,7 +7,7 @@ import utils.LogicContext._
 
 case class Logs (_id: ObjectId = new ObjectId,
                  name: String,
-                 logList: List[Log]
+                 logs: Map[String, Log]
                  )
 
 object LogsDAO extends SalatDAO[Logs, ObjectId] (

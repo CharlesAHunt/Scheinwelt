@@ -5,45 +5,54 @@
 @main(loginForm, registerForm) {
 
     <h2>Manage</h2>
-    <div class="row">
+
+    <br>
+
+    <div class="row col-md-offset-1">
         <div class="col-md-5">
+            <div class="well">
+                <h3>Add Application</h3>
+                @form(routes.Manage.createApplication()) {
+                    @inputText(
+                        appForm("name"),
+                        '_label -> "Name",
+                        '_help -> "Please enter an application name."
+                    )
 
-            @form(routes.Manage.createApplication()) {
-                @inputText(
-                    appForm("name"),
-                    '_label -> "Name",
-                    '_help -> "Please choose an application name."
-                )
+                    @select(field = appForm("environment"), options = options(
+                    controllers.Manage.getEnvironments().map(_.name)), '_label-> "", '_default -> " Choose Environment ")
 
-                @select(field = appForm("environment"), options = options(
-                controllers.Manage.getEnvironments().map(_.toString)), '_label-> "", '_default -> "-- Choose Environment --")
+                    @select(field = appForm("region"), options = options(
+                    controllers.Manage.getRegions().map(_.name)), '_label-> "", '_default -> " Choose Region ")
 
-                @select(field = appForm("region"), options = options(
-                controllers.Manage.getRegions().map(_.toString)), '_label-> "", '_default -> "-- Choose Region --")
-
-                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
-            }
+                    <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
+                }
+            </div>
         </div>
 
         <div class="col-md-5">
-            @form(routes.Manage.createEnvironment()) {
-                @inputText(
-                envForm("name"),
-                '_label -> "Name",
-                '_help -> "Please choose an environment name."
-                )
-                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
-            }
-
-            @form(routes.Manage.createRegion()) {
-                @inputText(
-                regionForm("name"),
-                '_label -> "Name",
-                '_help -> "Please choose a region name."
-                )
-                <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
-            }
-
+            <div class="well">
+                <h3>Add Environment</h3>
+                @form(routes.Manage.createEnvironment()) {
+                    @inputText(
+                    envForm("name"),
+                    '_label -> "Name",
+                    '_help -> "Please choose an environment name."
+                    )
+                    <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
+                }
+            </div>
+            <div class="well">
+                <h3>Add Region</h3>
+                @form(routes.Manage.createRegion()) {
+                    @inputText(
+                    regionForm("name"),
+                    '_label -> "Name",
+                    '_help -> "Please choose a region name."
+                    )
+                    <input type="submit" class="btn btn-lg btn-block btn-primary" value="Create">
+                }
+            </div>
         </div>
     </div>
 

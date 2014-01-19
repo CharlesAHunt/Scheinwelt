@@ -19,9 +19,9 @@ object Manage extends Controller with Access {
       "region" -> text
     )(
         (name, environment, region) =>
-          Application(name = name, environment = environment, region = region, logs = Logs(name = name+region+environment, logList = List()) )
+          Application(name = name, environment = environment, region = region, logList = List() )
       )(
-        (application: Application) => Option(application.name, application.name, application.name)
+        (application: Application) => Option(application.name, application.environment, application.region)
       )
   )
 
@@ -57,7 +57,7 @@ object Manage extends Controller with Access {
         "error" -> "There were errors in your form."
       )},
       app => {
-        val application = MongoDBObject("name" -> app.name, "environment" -> app.environment,"region" -> app.region,"logs" -> app.logs)
+        val application = MongoDBObject("name" -> app.name, "environment" -> app.environment,"region" -> app.region,"logList" -> app.logList)
         getCollection("applications").insert(application)
       }
     )
