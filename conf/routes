@@ -5,6 +5,7 @@
 # Home page
 GET         /                    controllers.Search.index()
 GET         /index               controllers.Search.index()
+GET         /about               controllers.Search.about()
 GET         /search              controllers.Search.search()
 POST        /login               controllers.Access.login()
 GET         /logout              controllers.Access.logout()

@@ -17,6 +17,10 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
+  def about = Action { implicit request =>
+    Ok(views.html.about(loginForm, registerForm))
+  }
+
   case class LogSearch(environment: String, region:String, application:String, exception:String, message:String, level:String, date:String)
 
   val searchForm: Form[LogSearch] = Form(
