@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.User
+import models.{UserDAO, User}
 import com.mongodb.casbah.commons.MongoDBObject
 import utils.{DatabaseService, EncryptionUtil}
 
@@ -11,37 +11,27 @@ trait Access extends Controller with DatabaseService {
 
   val loginForm: Form[User] = Form(
     mapping(
-      "name" -> text,
+      "username" -> text,
       "token" -> text
     )(
-      (name, token) =>
-        User(username = name, password = token)
+      (username, token) =>
+        User(username = username, token = token)
     )(
-      (user: User) => Option(user.username, user.password)
+      (user: User) => Option(user.username, user.token)
     )
   )
 
   val registerForm: Form[User] = Form(
     mapping(
       "username" -> text,
-      "password" -> text
+      "token" -> text
     )(
-      (username, password) =>
-        User(username = username, password = password)
+      (username, token) =>
+        User(username = username, token = token)
     )(
-      (user: User) => Option(user.username, user.password)
+      (user: User) => Option(user.username, user.token)
     )
   )
-
-  def checkLogin(username: String, password: String) = {
-//    UserDAO.isPasswordCorrect(username,password)
-  }
-
-  def checkRegister(username: String, password: String, email: String) = {
-
-  }
-
-
 
   /**
    * Redirect to login if the user in not authorized.
@@ -68,7 +58,7 @@ object Access extends Controller with Access {
         "error" -> "There were errors in your registration form."
       )},
       user => {
-        val a = MongoDBObject("username" -> user.username, "password" -> EncryptionUtil.encrypt(user.password))
+        val a = MongoDBObject("username" -> user.username, "token" -> EncryptionUtil.encrypt(user.token))
         getCollection("users").insert(a)
       }
     )
@@ -80,11 +70,24 @@ object Access extends Controller with Access {
 
 
   def login = Action { implicit request =>
+    loginForm.bindFromRequest.fold(
+      errors => {    Redirect("/index").flashing(
+        "error" -> "There were errors in your login form."
+      )},
+      user => {
+        val found = UserDAO.findOne(MongoDBObject("username" -> user.username))
+        if(user.token == EncryptionUtil.decrypt(found.get.token)) {
+          Redirect("/index").withSession(
+            session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("username").get)
+          ).flashing(
+              "success" -> "You are now logged in."
+            )
+        }
+      }
+    )
 
-    Redirect("/index").withSession(
-      session + ("logged_in_user" -> loginForm.bindFromRequest.data.get("name").get)
-    ).flashing(
-        "success" -> "You are now logged in."
+    Redirect("/index").flashing(
+        "danger" -> "Your username or password was incorrect"
       )
 
   }
