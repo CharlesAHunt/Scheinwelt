@@ -66,14 +66,12 @@
             .controller('LogicController',['$scope', function($scope){
                 $scope.search = false;
 
-            }]);
-
-    angular.module('log-ic', [])
+            }])
             .factory('LogicService', ['$http', function($http) {
 
                 $http.get('http://localhost:9000/search/' + 'itemid')
                         .success(function (data) {
-                             // { foo: 'bar' }
+                            // { foo: 'bar' }
                         })
                         .error(function (data, status, headers, config) {
                             alert("WHOOPS!");

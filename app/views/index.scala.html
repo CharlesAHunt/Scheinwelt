@@ -17,35 +17,35 @@
             <div ng-hide="search">
 
                 @form(controllers.routes.Search.search()){
-                <fieldset>
+                    <fieldset>
 
-                    @select(field = searchForm("application"), options = options(
-                    controllers.Manage.getApplications().map(_.name)), '_label-> "", '_default -> " Choose Application ")
+                        @select(field = searchForm("application"), options = options(
+                        controllers.Manage.getApplications().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Application ")
 
-                    @select(field = searchForm("environment"), options = options(
-                    controllers.Manage.getEnvironments().map(_.name)), '_label-> "", '_default -> " Choose Environment ")
+                        @select(field = searchForm("environment"), options = options(
+                        controllers.Manage.getEnvironments().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Environment ")
 
-                    @select(field = searchForm("region"), options = options(
-                    controllers.Manage.getRegions().map(_.name)), '_label-> "", '_default -> " Choose Region ")
+                        @select(field = searchForm("region"), options = options(
+                        controllers.Manage.getRegions().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Region ")
 
-                    @select(field = searchForm("level"), options = options(
-                    LogLevelEnum.values.toList.map(_.toString)),
-                    '_label-> "", '_default -> " Choose Log Level ", 'id -> "level")
+                        @select(field = searchForm("level"), options = options(
+                        LogLevelEnum.values.toList.map(_.toString)), 'class->"form-control",
+                        '_label-> "", '_default -> " Choose Log Level ", 'id -> "level")
 
-                    <span style="display: none">@inputText(
-                        searchForm("exception"),
-                        '_label -> "Exception"
-                    )</span>
-                    <span style="display: none">@inputText(
-                        searchForm("message"),
-                        '_label -> "Message"
-                    )</span>
-                    <span style="display: none">@inputText(
-                        searchForm("date"),
-                        '_label -> "Date"
-                    )</span>
-                </fieldset>
-                <a class="btn btn-lg btn-success" ng-click="search=!search">Search</a>
+                        <span style="display: none">@inputText(
+                            searchForm("exception"),
+                            '_label -> "Exception"
+                        )</span>
+                        <span style="display: none">@inputText(
+                            searchForm("message"),
+                            '_label -> "Message"
+                        )</span>
+                        <span style="display: none">@inputText(
+                            searchForm("date"),
+                            '_label -> "Date"
+                        )</span>
+                    </fieldset>
+                    <a class="btn btn-lg btn-success" ng-click="search=!search">Search</a>
                 }
 
             </div>
