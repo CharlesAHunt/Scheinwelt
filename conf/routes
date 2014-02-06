@@ -3,14 +3,13 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Search.index()
-GET         /index               controllers.Search.index()
-GET         /about               controllers.Search.about()
-GET         /search              controllers.Search.search()
-POST        /search               controllers.Access.login()
-POST        /login               controllers.Access.login()
-GET         /logout              controllers.Access.logout()
-POST        /register            controllers.Access.register()
+GET         /                       controllers.Search.index()
+GET         /index                  controllers.Search.index()
+GET         /about                  controllers.Search.about()
+GET         /search/:id             controllers.Search.search(id: String)
+POST        /login                  controllers.Access.login()
+GET         /logout                 controllers.Access.logout()
+POST        /register               controllers.Access.register()
 
 GET         /manage                 controllers.Manage.index()
 POST        /manage/app/create      controllers.Manage.createApplication()

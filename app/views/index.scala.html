@@ -16,7 +16,7 @@
 
             <div ng-hide="search">
 
-                @form(controllers.routes.Search.search()){
+                @form(controllers.routes.Search.search("2")){
                     <fieldset>
 
                         @select(field = searchForm("application"), options = options(
@@ -45,7 +45,7 @@
                             '_label -> "Date"
                         )</span>
                     </fieldset>
-                    <a class="btn btn-lg btn-success" ng-click="search=!search">Search</a>
+                    <a class="btn btn-lg btn-success" ng-click="doSearch();search=!search">Search</a>
                 }
 
             </div>
@@ -53,11 +53,11 @@
             <div ng-show="search">
                 <a class="btn btn-lg btn-info" ng-click="search=!search">New Search</a>
                 <br><br>
-                <div class="well">Search Results will load asynchronously here</div>
+                <div class="well">{{logData}}</div>
             </div>
 
-
         </div>
+
         <div class="col-md-4">
             <canvas id="myChart2" width="250" height="250"></canvas>
         </div>

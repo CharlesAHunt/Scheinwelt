@@ -1,20 +1,25 @@
 package controllers
 
+import org.apache.logging.log4j._
 import play.api.mvc._
-import utils.DatabaseService
+import utils.{EncryptionUtil, DatabaseService}
 import play.api.data.Form
 import play.api.data.Forms._
 import models.{LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
+import com.mongodb.casbah.commons.ValidBSONType.BSONTimestamp
+import org.bson.types.BSONTimestamp
 
 object Search extends Controller with Access with DatabaseService {
+
+  val logger: Logger = LogManager.getLogger("Logic");
 
   def index = Action { implicit request =>
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search = Action { implicit request =>
-    Ok(views.html.index(loginForm, registerForm, searchForm))
+  def search(id : String) = Action { implicit request =>
+    Ok("""{"id":"27"}""").as(JSON)
   }
 
   def about = Action { implicit request =>
@@ -42,6 +47,14 @@ object Search extends Controller with Access with DatabaseService {
 
   def searchResults(): List[Log] = {
     LogDAO.find(ref = MongoDBObject()).toList
+  }
+
+  def generateLogs() = {
+    logger.error("Hello, World!")
+    val a = MongoDBObject("NoClassDefFound" -> "ERROR", "message" -> "Class definition not found at runtime",
+      "level" -> "ERROR", "trace" -> "stacktrace", "timestamp" -> new BSONTimestamp())
+
+    getCollection("users").insert(a)
   }
 
 }

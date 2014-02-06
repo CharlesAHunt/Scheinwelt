@@ -8,7 +8,6 @@ import com.mongodb.casbah.commons.MongoDBObject
 import models.Region
 import models.Environment
 import models.Application
-import models.Logs
 
 object Manage extends Controller with Access {
 
