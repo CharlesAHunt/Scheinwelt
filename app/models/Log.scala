@@ -1,17 +1,17 @@
 package models
 
-import org.bson.types.BSONTimestamp
 import utils.DatabaseService
 import org.bson.types.ObjectId
 import com.novus.salat.dao.SalatDAO
 import utils.LogicContext._
 
 case class Log (_id: ObjectId = new ObjectId,
+              application: String,
               exception: String,
               message: String,
               level: String,
               trace: String,
-              timeStamp: Option[BSONTimestamp] = None)
+              timeStamp: String)
 
 object LogDAO extends SalatDAO[Log, ObjectId] (
-  collection = DatabaseService.getCollection("log"))(manifest[Log],manifest[ObjectId],ctx)
+  collection = DatabaseService.getCollection("logs"))(manifest[Log],manifest[ObjectId],ctx)

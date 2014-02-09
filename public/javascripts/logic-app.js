@@ -4,7 +4,7 @@ app.factory('logSearch', ['$http', function($http) {
 
     return {
         fetch: function($scope, text){
-            $http.get('http://localhost:9000/search/' + 'itemid')
+            $http.get('search/' + 'itemid')
                 .success(function (data) {
 
                     $scope.logData = data;

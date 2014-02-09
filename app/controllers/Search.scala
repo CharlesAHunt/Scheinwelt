@@ -9,17 +9,18 @@ import models.{LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
 import com.mongodb.casbah.commons.ValidBSONType.BSONTimestamp
 import org.bson.types.BSONTimestamp
+import play.api.libs.json
 
 object Search extends Controller with Access with DatabaseService {
 
-  val logger: Logger = LogManager.getLogger("Logic");
+  val logger: Logger = LogManager.getLogger("Logic")
 
   def index = Action { implicit request =>
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(id : String) = Action { implicit request =>
-    Ok("""{"id":"27"}""").as(JSON)
+  def search(id : String) = Action(parse.json) {
+    Ok(json.Json.(LogDAO.find(ref = MongoDBObject())))
   }
 
   def about = Action { implicit request =>
@@ -50,11 +51,14 @@ object Search extends Controller with Access with DatabaseService {
   }
 
   def generateLogs() = {
-    logger.error("Hello, World!")
-    val a = MongoDBObject("NoClassDefFound" -> "ERROR", "message" -> "Class definition not found at runtime",
-      "level" -> "ERROR", "trace" -> "stacktrace", "timestamp" -> new BSONTimestamp())
 
-    getCollection("users").insert(a)
+//    logger.error("Hello, World!")
+
+    val log = MongoDBObject("application" -> "todo", "exception" -> "java.lang.NoClassDefFoundError", "message" -> "Class definition not found at runtime",
+      "level" -> "ERROR", "trace" -> "stacktrace...", "timeStamp" -> new org.joda.time.DateTime().toString())
+
+    getCollection("logs").insert(log)
+
   }
 
 }
