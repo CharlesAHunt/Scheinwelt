@@ -7,9 +7,8 @@ import play.api.data.Form
 import play.api.data.Forms._
 import models.{LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.casbah.commons.ValidBSONType.BSONTimestamp
-import org.bson.types.BSONTimestamp
-import play.api.libs.json
+import play.api.libs.json.{JsString, Json}
+import com.mongodb.{DBObject, DBCursor}
 
 object Search extends Controller with Access with DatabaseService {
 
@@ -19,8 +18,14 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(id : String) = Action(parse.json) {
-    Ok(json.Json.(LogDAO.find(ref = MongoDBObject())))
+  def search(id : String) = Action {
+
+    val jsonBuilder = StringBuilder.newBuilder
+    jsonBuilder.append("[")
+    getCollection("logs").find().foreach( jsonBuilder.append(_).append(",") )
+    jsonBuilder.deleteCharAt(jsonBuilder.length-1)
+    jsonBuilder.append("]")
+    Ok(jsonBuilder.toString())
   }
 
   def about = Action { implicit request =>

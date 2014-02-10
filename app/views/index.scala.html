@@ -5,12 +5,12 @@
 
 @main(loginForm, registerForm) {
 
-<div class="jumbotron">
+<div class="jumbotron" ng-controller="LogicController">
     <div class="row">
         <div class="col-md-4">
             <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
         </div>
-        <div class="col-md-4" ng-controller="LogicController">
+        <div class="col-md-4">
             <h1>Log.ic</h1>
             <p class="lead"> Find logs </p>
 
@@ -50,22 +50,24 @@
 
             </div>
 
-            <div ng-show="search">
-                <a class="btn btn-lg btn-info" ng-click="search=!search">New Search</a>
-                <br><br>
-                <div class="well">
-
-                    {{logData}}
-
-
-
-                </div>
-            </div>
-
         </div>
 
         <div class="col-md-4">
             <canvas id="myChart2" width="250" height="250"></canvas>
+        </div>
+
+        <div class="col-md-10 col-md-offset-1" ng-show="search">
+            <a class="btn btn-lg btn-info" style="margin-top: -50px;" ng-click="search=!search">New Search</a>
+            <br><br>
+            <div class="well">
+
+                <div ng-repeat="log in logData track by $index">
+                    <span class="">{{log.level}}</span>
+                    <span class="">{{log.message}}</span>
+                    <span class="">{{log.exception}}</span>
+                </div>
+
+            </div>
         </div>
     </div>
 
