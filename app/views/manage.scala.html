@@ -4,7 +4,7 @@
 
 @main(loginForm, registerForm) {
 
-    <h2>Manage</h2>
+    <h2 class="title">Manage</h2>
 
     <br>
 
@@ -61,7 +61,7 @@
             Applications
             <table class="table table-striped table-hover">
                 @if(applicationList.isEmpty) {
-                <div class="alert alert-info">There are none created</div>
+                    <div class="alert alert-info">There are none created</div>
                 }
                 <thead>
                 <th>name</th>

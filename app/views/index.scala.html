@@ -11,45 +11,44 @@
             <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
         </div>
         <div class="col-md-4">
-            <h1>Log.ic</h1>
-            <p class="lead"> Find logs </p>
+            <h1 style="color: #bfb8e5; margin-top: -20px;">Log.ic</h1>
+            <p class="lead" style="color: #8d79f2;"> Find logs </p>
 
             <div ng-hide="search">
 
-                @form(controllers.routes.Search.search("2")){
-                    <fieldset>
+                <fieldset>
+                    @select(field = searchForm("application"), options = options(
+                    controllers.Manage.getApplications().map(_.name)), 'class->"form-control", 'id -> "app", '_label-> "", '_default -> " Choose Application ")
 
-                        @select(field = searchForm("application"), options = options(
-                        controllers.Manage.getApplications().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Application ")
+                    @select(field = searchForm("environment"), options = options(
+                    controllers.Manage.getEnvironments().map(_.name)), 'class->"form-control", 'id -> "env", '_label-> "", '_default -> " Choose Environment ")
 
-                        @select(field = searchForm("environment"), options = options(
-                        controllers.Manage.getEnvironments().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Environment ")
+                    @select(field = searchForm("region"), options = options(
+                    controllers.Manage.getRegions().map(_.name)), 'class->"form-control", 'id -> "region", '_label-> "", '_default -> " Choose Region ")
 
-                        @select(field = searchForm("region"), options = options(
-                        controllers.Manage.getRegions().map(_.name)), 'class->"form-control", '_label-> "", '_default -> " Choose Region ")
+                    @select(field = searchForm("level"), options = options(
+                    LogLevelEnum.values.toList.map(_.toString)), 'class->"form-control",
+                    '_label-> "", '_default -> " Choose Log Level ", 'id -> "level")
 
-                        @select(field = searchForm("level"), options = options(
-                        LogLevelEnum.values.toList.map(_.toString)), 'class->"form-control",
-                        '_label-> "", '_default -> " Choose Log Level ", 'id -> "level")
+                    <div style="color: #8d79f2;">
+                        @inputText( searchForm("exception"), 'class->"form-control", 'placeholder -> "Exception", 'id -> "exception",
+                        '_label -> "Exception")
 
-                        <span style="display: none">@inputText(
-                            searchForm("exception"),
-                            '_label -> "Exception"
-                        )</span>
-                        <span style="display: none">@inputText(
-                            searchForm("message"),
-                            '_label -> "Message"
-                        )</span>
-                        <span style="display: none">@inputText(
-                            searchForm("date"),
-                            '_label -> "Date"
-                        )</span>
-                    </fieldset>
-                    <a class="btn btn-lg btn-success" ng-click="doSearch();search=!search">Search</a>
-                }
+                        @inputText( searchForm("message"), 'class->"form-control", 'placeholder -> "Message", 'id -> "message",
+                        '_label -> "Message" )
+
+                        @inputText( searchForm("beforeDate"), 'class->"form-control", 'placeholder -> "Before Date", 'id -> "beforeDate",
+                        '_label -> "Before Date" )
+
+                        @inputText( searchForm("afterDate"), 'class->"form-control", 'placeholder -> "After Date", 'id -> "afterDate",
+                        '_label -> "After Date" )
+                    </div>
+
+                </fieldset>
+
+                <a class="btn btn-lg btn-success" ng-click="doSearch();search=!search">Search</a>
 
             </div>
-
         </div>
 
         <div class="col-md-4">
@@ -74,7 +73,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="color: #8d79f2;">
             <div class="col-md-3 col-md-offset-2">
                 <h2>Precog</h2>
                 <p> Predict failure </p>
@@ -101,9 +100,9 @@
                 labels : ["January","February","March","April","May","June","July"],
                 datasets : [
                     {
-                        fillColor : "rgba(220,220,220,0.5)",
-                        strokeColor : "rgba(220,220,220,1)",
-                        pointColor : "rgba(220,220,220,1)",
+                        fillColor : "rgba(175,161,220,0.5)",
+                        strokeColor : "rgba(175,161,220,1)",
+                        pointColor : "rgba(175,161,220,1)",
                         pointStrokeColor : "#fff",
                         data : [65,59,90,81,56,55,40]
                     },
@@ -121,9 +120,9 @@
                 labels : ["Fatal","Error","Warning","Info","Debug","Trace","Severe"],
                 datasets : [
                     {
-                        fillColor : "rgba(220,220,220,0.5)",
-                        strokeColor : "rgba(220,220,220,1)",
-                        pointColor : "rgba(220,220,220,1)",
+                        fillColor : "rgba(175,161,220,0.5)",
+                        strokeColor : "rgba(175,161,220,1)",
+                        pointColor : "rgba(175,161,220,1)",
                         pointStrokeColor : "#fff",
                         data : [65,59,90,81,56,55,40]
                     },
@@ -139,7 +138,6 @@
             };
 
 
-            var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).Line(data);
-            var myRadarArea = new Chart($("#myChart2").get(0).getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
-
+            var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).Line(data,{scaleFontColor : "#AFA1F6", scaleGridLineColor : "rgba(175,161,220,0.5)"});
+            var myRadarArea = new Chart($("#myChart2").get(0).getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10, pointLabelFontColor : "#AFA1F6", scaleLineColor : "rgba(175,161,220,0.5)", angleLineColor : "rgba(175,161,220,0.5)"});
         </script>

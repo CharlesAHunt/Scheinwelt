@@ -2,13 +2,11 @@ package controllers
 
 import org.apache.logging.log4j._
 import play.api.mvc._
-import utils.{EncryptionUtil, DatabaseService}
+import utils.DatabaseService
 import play.api.data.Form
 import play.api.data.Forms._
 import models.{LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
-import play.api.libs.json.{JsString, Json}
-import com.mongodb.{DBObject, DBCursor}
 
 object Search extends Controller with Access with DatabaseService {
 
@@ -18,14 +16,18 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(id : String) = Action {
+  def search(app: String,env: String,region: String,level: String,exception: String,message: String,beforeDate: String,afterDate: String) = Action {
 
     val jsonBuilder = StringBuilder.newBuilder
+    val log = MongoDBObject("application" -> app,"exception" -> exception,"message" -> message,"level" -> level)
+
     jsonBuilder.append("[")
-    getCollection("logs").find().foreach( jsonBuilder.append(_).append(",") )
+    getCollection("logs").find(log).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
     jsonBuilder.append("]")
+
     Ok(jsonBuilder.toString())
+
   }
 
   def about = Action { implicit request =>
@@ -56,8 +58,6 @@ object Search extends Controller with Access with DatabaseService {
   }
 
   def generateLogs() = {
-
-//    logger.error("Hello, World!")
 
     val log = MongoDBObject("application" -> "todo", "exception" -> "java.lang.NoClassDefFoundError", "message" -> "Class definition not found at runtime",
       "level" -> "ERROR", "trace" -> "stacktrace...", "timeStamp" -> new org.joda.time.DateTime().toString())
