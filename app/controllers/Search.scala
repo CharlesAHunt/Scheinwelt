@@ -2,7 +2,7 @@ package controllers
 
 import org.apache.logging.log4j._
 import play.api.mvc._
-import utils.DatabaseService
+import utils.{LogQueryBuilder, DatabaseService}
 import play.api.data.Form
 import play.api.data.Forms._
 import models.{LogDAO, Log}
@@ -16,13 +16,13 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(app: String,env: String,region: String,level: String,exception: String,message: String,beforeDate: String,afterDate: String) = Action {
+  def search(app: Option[String],env: Option[String],region: Option[String],level: Option[String],exception: Option[String],message: Option[String],beforeDate: Option[String],afterDate: Option[String]) = Action {
 
     val jsonBuilder = StringBuilder.newBuilder
-    val log = MongoDBObject("application" -> app,"exception" -> exception,"message" -> message,"level" -> level)
+    val queryObject = LogQueryBuilder.apply(app, env, region, level, exception, message, beforeDate, afterDate).buildQuery()
 
     jsonBuilder.append("[")
-    getCollection("logs").find(log).foreach( jsonBuilder.append(_).append(",") )
+    getCollection("logs").find(queryObject).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
     jsonBuilder.append("]")
 
