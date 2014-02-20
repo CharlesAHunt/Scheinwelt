@@ -6,7 +6,7 @@
 GET         /                       controllers.Search.index()
 GET         /index                  controllers.Search.index()
 GET         /about                  controllers.Search.about()
-GET         /search/:app/:env/:region/:level/:exception/:message/:beforeDate/:afterDate       controllers.Search.search(app,env,region,level,exception,message,beforeDate,afterDate)
+GET         /search/:app/:env/:region/:level/:exception/:message/:beforeDate/:afterDate          controllers.Search.search(app,env,region,level,exception,message,beforeDate,afterDate)
 POST        /login                  controllers.Access.login()
 GET         /logout                 controllers.Access.logout()
 POST        /register               controllers.Access.register()

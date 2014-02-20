@@ -12,19 +12,52 @@ case class LogQueryBuilder(app: Option[String],env: Option[String],region: Optio
     val builder = MongoDBObject.newBuilder
 
     app match {
-      case Some(value) => builder += "app" -> value
-      case None => "what to do here"
+      case Some(value) if value != "#" => builder += "app" -> value
+      case None =>
+      case _ =>
     }
 
+    env match {
+      case Some(value) if value != "#" => builder += "env" -> value
+      case None =>
+      case _ =>
+    }
 
-    builder += "app" -> app
-    builder += "env" -> env
-    builder += "region" -> region
-    builder += "level" -> level
-    builder += "exception" -> exception
-    builder += "message" -> message
-    builder += "beforeDate" -> beforeDate
-    builder += "afterDate" -> afterDate
+    region match {
+      case Some(value) if value != "#" => builder += "region" -> value
+      case None =>
+      case _ =>
+    }
+
+    level match {
+      case Some(value) if value != "#" => builder += "level" -> value
+      case None =>
+      case _ =>
+    }
+
+    exception match {
+      case Some(value) if value != "#" => builder += "exception" -> value
+      case None =>
+      case _ =>
+    }
+
+    message match {
+      case Some(value) if value != "#" => builder += "message" -> value
+      case None =>
+      case _ =>
+    }
+
+    beforeDate match {
+      case Some(value) if value != "#" => builder += "beforeDate" -> value
+      case None =>
+      case _ =>
+    }
+
+    afterDate match {
+      case Some(value) if value != "#" => builder += "afterDate" -> value
+      case None =>
+      case _ =>
+    }
 
     builder.result()
 

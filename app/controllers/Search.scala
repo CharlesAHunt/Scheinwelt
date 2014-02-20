@@ -16,11 +16,12 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(app: Option[String],env: Option[String],region: Option[String],level: Option[String],exception: Option[String],message: Option[String],beforeDate: Option[String],afterDate: Option[String]) = Action {
+  def search(app: String,env: String,region: String,level: String,exception: String,message: String,beforeDate: String,afterDate: String) = Action {
 
     val jsonBuilder = StringBuilder.newBuilder
-    val queryObject = LogQueryBuilder.apply(app, env, region, level, exception, message, beforeDate, afterDate).buildQuery()
+    val queryObject = LogQueryBuilder.apply(Option(app), Option(env), Option(region), Option(level), Option(exception), Option(message), Option(beforeDate), Option(afterDate)).buildQuery()
 
+    println(queryObject)
     jsonBuilder.append("[")
     getCollection("logs").find(queryObject).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
