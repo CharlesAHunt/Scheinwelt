@@ -7,6 +7,7 @@ import play.api.data.Form
 import play.api.data.Forms._
 import models.{LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
+import scala.collection.immutable.StringOps
 
 object Search extends Controller with Access with DatabaseService {
 
@@ -16,12 +17,15 @@ object Search extends Controller with Access with DatabaseService {
     Ok(views.html.index(loginForm, registerForm, searchForm))
   }
 
-  def search(app: String,env: String,region: String,level: String,exception: String,message: String,beforeDate: String,afterDate: String) = Action {
-
+  def search(search: String) = Action {
+    println("search:" + search)
+    val stringArray = search.split(":::")
     val jsonBuilder = StringBuilder.newBuilder
-    val queryObject = LogQueryBuilder.apply(Option(app), Option(env), Option(region), Option(level), Option(exception), Option(message), Option(beforeDate), Option(afterDate)).buildQuery()
+    val queryObject = LogQueryBuilder.apply(Option(stringArray(0)), Option(stringArray(1)), Option(stringArray(2)), Option(stringArray(3)),
+      Option(stringArray(4)), Option(stringArray(5)), Option(stringArray(6)), Option(stringArray(7))).buildQuery()
 
     println(queryObject)
+
     jsonBuilder.append("[")
     getCollection("logs").find(queryObject).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
