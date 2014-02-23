@@ -35,6 +35,6 @@ function LogicController($scope, logSearch) {
         var beforeDate = document.getElementById('beforeDate').value;
         var afterDate = document.getElementById('afterDate').value;
 
-        logSearch.fetch($scope, app+':::'+env+':::'+region+':::'+level+':::'+exception+':::'+message+':::'+beforeDate+':::'+afterDate);
+        logSearch.fetch($scope, app+' ::: '+env+' ::: '+region+' ::: '+level+' ::: '+exception+' ::: '+message+' ::: '+beforeDate+' ::: '+afterDate + " ::: ");
     };
 }

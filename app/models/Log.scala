@@ -11,7 +11,8 @@ case class Log (_id: ObjectId = new ObjectId,
               message: String,
               level: String,
               trace: String,
-              timeStamp: String)
+              date: String,
+              time: String)
 
 object LogDAO extends SalatDAO[Log, ObjectId] (
   collection = DatabaseService.getCollection("logs"))(manifest[Log],manifest[ObjectId],ctx)

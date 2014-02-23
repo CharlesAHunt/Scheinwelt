@@ -1,0 +1,1309 @@
+2014-01-24 12:01:24,158  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:01:24,248  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:01:35,089  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:01:36,504  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.searchForLatestStatements() method #####
+2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.getStatementList() method #####
+2014-01-24 12:01:36,806  DEBUG Connection: {conn-100000} Connection
+2014-01-24 12:01:36,815  DEBUG Connection: {conn-100000} Preparing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
+2014-01-24 12:01:36,821  DEBUG PreparedStatement: {pstm-100001} Executing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
+2014-01-24 12:01:36,821  DEBUG PreparedStatement: {pstm-100001} Parameters: []
+2014-01-24 12:01:36,821  DEBUG PreparedStatement: {pstm-100001} Types: []
+2014-01-24 12:01:36,914  DEBUG ResultSet: {rset-100002} ResultSet
+2014-01-24 12:01:36,925  DEBUG ResultSet: {rset-100002} Header: [LABELCODE, TEXT]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#ANN_STMT#, Mgmt Comp - Annuity Distbn                                  ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#BEA_AGMT#, BEA AGREEMENT                                               ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#EAR_STMT#, Earnings Report                                             ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#MGR_STMT#, Management Comp                                             ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#PRD_STMT#, Individual Commissions                                      ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_ALN#, Marketing Alliance                                          ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_ERN#, Producer Earnings Report                                    ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_GPC#, Group and Pension Statement                                 ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_IND#, Individual Statement                                        ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_NA# , Not Applicable                                              ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_PAD#, Princor Advantage Statement                                 ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_PCC#, Princor Cash Compensation Stmt                              ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_PPN#, PPN Statement                                               ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_SRC#, Sales Rep Compensation Summary                              ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_TPA#, TPA Compensation                                            ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_002#, RIA Fees                                                    ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_003#, Group Benefits/Pension                                      ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_004#, Investment Product Concessions                              ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_005#, PPNI Commissions                                            ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#STTP_006#, Princor Commissions                                         ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#UNT_STMT#, Unit Comp                                                   ]
+2014-01-24 12:01:36,927  DEBUG ResultSet: {rset-100002} Result: [#VAR_STMT#, Variable Comp                                               ]
+2014-01-24 12:01:37,296  DEBUG Connection: {conn-100003} Connection
+2014-01-24 12:01:37,298  DEBUG Connection: {conn-100003} Preparing Call: {call DB2.CC072870(?,'','',?,'','',0,'','',?,0,0,0,?,?,?,?)}
+2014-01-24 12:01:37,298  DEBUG PreparedStatement: {pstm-100004} Executing Statement: {call DB2.CC072870(?,'','',?,'','',0,'','',?,0,0,0,?,?,?,?)}
+2014-01-24 12:01:37,298  DEBUG PreparedStatement: {pstm-100004} Parameters: [G, 8373724746042202102, 20]
+2014-01-24 12:01:37,298  DEBUG PreparedStatement: {pstm-100004} Types: [java.lang.String, java.lang.String, java.lang.Short]
+2014-01-24 12:01:37,370  DEBUG Connection: {conn-100005} Connection
+2014-01-24 12:01:37,370  DEBUG Connection: {conn-100005} Preparing Call: {call DB2.CC072870(?,'','',?,'','',0,'','',?,0,0,0,?,?,?,?)}
+2014-01-24 12:01:37,370  DEBUG PreparedStatement: {pstm-100006} Executing Statement: {call DB2.CC072870(?,'','',?,'','',0,'','',?,0,0,0,?,?,?,?)}
+2014-01-24 12:01:37,370  DEBUG PreparedStatement: {pstm-100006} Parameters: [G, 8373724746042202102, 10]
+2014-01-24 12:01:37,372  DEBUG PreparedStatement: {pstm-100006} Types: [java.lang.String, java.lang.String, java.lang.Short]
+2014-01-24 12:01:37,391  INFO  Logger: ##### AccessController: Granted tax ID list size: 0
+2014-01-24 12:01:37,773  INFO  Logger: ##### AccessController: Adding user tax ID to list.
+2014-01-24 12:01:37,773  INFO  Logger: ##### User : V868394
+2014-01-24 12:01:37,773  INFO  Logger: ##### Search for Tax Ids :[373642587]
+2014-01-24 12:01:37,773  INFO  Logger: ##### Begin PayAndStatementsViewBean.getDocList() method #####
+2014-01-24 12:01:37,774  INFO  Logger: ##### END PayAndStatementsViewBean.getDocList() method #####
+2014-01-24 12:01:37,774  INFO  Logger: ##### Begin SearchForStatementsDAOImpl.searchForStatements() method #####
+2014-01-24 12:01:37,831  DEBUG Connection: {conn-100007} Connection
+2014-01-24 12:01:38,002  DEBUG Connection: {conn-100007} Preparing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS marketerName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
+2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Executing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS marketerName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
+2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Parameters: [#ANN_STMT#, #BEA_AGMT#, #MGR_STMT#, #PRD_STMT#, #EAR_STMT#, #STTP_002#, #UNT_STMT#, #VAR_STMT#, 373642587, 2013-12-24 00:00:00.0, 2014-01-24 00:00:00.0]
+2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Types: [java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer, java.sql.Timestamp, java.sql.Timestamp]
+2014-01-24 12:01:43,835  DEBUG ResultSet: {rset-100009} ResultSet
+2014-01-24 12:01:43,846  DEBUG Connection: {conn-100010} Connection
+2014-01-24 12:01:43,846  DEBUG Connection: {conn-100010} Preparing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
+2014-01-24 12:01:43,846  DEBUG PreparedStatement: {pstm-100011} Executing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
+2014-01-24 12:01:43,846  DEBUG PreparedStatement: {pstm-100011} Parameters: []
+2014-01-24 12:01:43,846  DEBUG PreparedStatement: {pstm-100011} Types: []
+2014-01-24 12:01:43,848  DEBUG ResultSet: {rset-100012} ResultSet
+2014-01-24 12:01:43,848  DEBUG ResultSet: {rset-100012} Header: [LABELCODE, TEXT]
+2014-01-24 12:01:43,848  DEBUG ResultSet: {rset-100012} Result: [#ANN_STMT#, Mgmt Comp - Annuity Distbn                                  ]
+2014-01-24 12:01:43,848  DEBUG ResultSet: {rset-100012} Result: [#BEA_AGMT#, BEA AGREEMENT                                               ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#EAR_STMT#, Earnings Report                                             ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#MGR_STMT#, Management Comp                                             ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#PRD_STMT#, Individual Commissions                                      ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_ALN#, Marketing Alliance                                          ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_ERN#, Producer Earnings Report                                    ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_GPC#, Group and Pension Statement                                 ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_IND#, Individual Statement                                        ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_NA# , Not Applicable                                              ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_PAD#, Princor Advantage Statement                                 ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_PCC#, Princor Cash Compensation Stmt                              ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_PPN#, PPN Statement                                               ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_SRC#, Sales Rep Compensation Summary                              ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_TPA#, TPA Compensation                                            ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_002#, RIA Fees                                                    ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_003#, Group Benefits/Pension                                      ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_004#, Investment Product Concessions                              ]
+2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#STTP_005#, PPNI Commissions                                            ]
+2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#STTP_006#, Princor Commissions                                         ]
+2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#UNT_STMT#, Unit Comp                                                   ]
+2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#VAR_STMT#, Variable Comp                                               ]
+2014-01-24 12:01:43,850  INFO  Logger: ##### END SearchForStatementsDAOImpl.searchForStatements() method #####
+2014-01-24 12:01:43,883  INFO  Logger: ##### Begin EagleStatementsViewBean.getEagleStatements method #####
+2014-01-24 12:01:46,955  INFO  WebLogFormatter: Starting to format message.
+2014-01-24 12:01:46,965  INFO  WebLogFormatter: Done formatting transaction.
+2014-01-24 12:01:46,965  INFO  WebLogFormatter: Done with details.
+2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: About to write object.
+2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: Done writing.
+2014-01-24 12:01:46,980  INFO  Logger: ##### END EagleStatementsViewBean.getEagleStatements method #####
+2014-01-24 12:01:46,980  INFO  Logger: ##### END PayAndStatementsViewBean.getStatementList() method #####
+2014-01-24 12:01:46,981  INFO  Logger: ##### END PayAndStatementsViewBean.searchForLatestStatements() method #####
+2014-01-24 12:02:02,993  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:02:02,999  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:02:03,002  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:09:37,567  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:09:37,574  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:09:39,781  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:09:40,926  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-01-24 12:13:38,073  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:13:38,083  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:13:38,398  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:13:38,494  INFO  WebLogFormatter: Starting to format message.
+2014-01-24 12:13:38,494  INFO  WebLogFormatter: Done formatting transaction.
+2014-01-24 12:13:38,494  INFO  WebLogFormatter: Done with details.
+2014-01-24 12:13:38,494  INFO  WebLogMessageBuffer: About to write object.
+2014-01-24 12:13:38,494  INFO  WebLogMessageBuffer: Done writing.
+2014-01-24 12:13:46,345  INFO  Logger: ##### Begin RenderStatementServlet.doGet() method #####
+2014-01-24 12:13:46,345  INFO  Logger: ##### Begin RenderStatementServlet.renderEagleStatements() method #####
+2014-01-24 12:13:48,339  INFO  Logger: ##### Begin RenderStatementServlet.sendEagleStmtsPDF() method #####
+2014-01-24 12:13:48,680  INFO  WebLogFormatter: Starting to format message.
+2014-01-24 12:13:48,680  INFO  WebLogFormatter: Done formatting transaction.
+2014-01-24 12:13:48,680  INFO  WebLogFormatter: Done with details.
+2014-01-24 12:13:48,680  INFO  WebLogMessageBuffer: About to write object.
+2014-01-24 12:13:48,680  INFO  WebLogMessageBuffer: Done writing.
+2014-02-03 09:31:43,944  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-03 09:31:44,031  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-03 09:31:53,874  FATAL Logger: 
+ 
+ com.principal.mks.commons.signon.UserSignonException
+	at com.principal.mks.commons.signon.util.IDConverter.convertEidToTaxId(IDConverter.java:43)
+	at com.principal.mks.commons.signon.UserSignon.convertTaxId(UserSignon.java:123)
+	at com.principal.mks.commons.signon.UserCredentials.getTaxId(UserCredentials.java:120)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:265)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374)
+	at com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954)
+	at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945)
+	at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592)
+	at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+
+2014-02-04 09:35:20,849  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-04 09:35:21,049  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-04 09:35:31,675  FATAL Logger: 
+ 
+ java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
+	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:265)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374)
+	at com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954)
+	at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945)
+	at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592)
+	at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+
+2014-02-05 08:52:33,122  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-05 08:52:33,250  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-05 08:52:43,952  FATAL Logger: 
+ 
+ java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
+	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:265)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374)
+	at com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954)
+	at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945)
+	at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592)
+	at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306)
+	at com.ibm.ws.http.channel.inbound.impl.HttpICLReadCallback.complete(HttpICLReadCallback.java:84)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+
+2014-02-05 11:15:45,170  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-05 11:15:45,181  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-05 11:15:57,798  FATAL Logger: 
+ 
+ java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
+	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:265)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374)
+	at com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954)
+	at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945)
+	at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592)
+	at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+
+2014-02-10 10:21:19,921  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:732)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:376)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$1.run(ApplicationMgrImpl.java:1273)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplicationDynamically(ApplicationMgrImpl.java:1278)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2050)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.startCompositionUnit(CompositionUnitMgrImpl.java:603)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.startCompositionUnit(CompositionUnitMgrImpl.java:565)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:1185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:48)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:600)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:57)
+	at sun.reflect.GeneratedMethodAccessor104.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:600)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260)
+	at javax.management.modelmbean.RequiredModelMBean$4.run(RequiredModelMBean.java:1137)
+	at java.security.AccessController.doPrivileged(AccessController.java:250)
+	at com.ibm.oti.security.CheckedAccessControlContext.securityCheck(CheckedAccessControlContext.java:30)
+	at sun.misc.JavaSecurityAccessWrapper.doIntersectionPrivilege(JavaSecurityAccessWrapper.java:29)
+	at javax.management.modelmbean.RequiredModelMBean.invokeMethod(RequiredModelMBean.java:1131)
+	at javax.management.modelmbean.RequiredModelMBean.invoke(RequiredModelMBean.java:984)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:836)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:762)
+	at com.ibm.ws.management.AdminServiceImpl$1.run(AdminServiceImpl.java:1331)
+	at com.ibm.ws.security.util.AccessController.doPrivileged(AccessController.java:118)
+	at com.ibm.ws.management.AdminServiceImpl.invoke(AdminServiceImpl.java:1224)
+	at com.ibm.ws.management.connector.AdminServiceDelegator.invoke(AdminServiceDelegator.java:181)
+	at com.ibm.ws.management.connector.ipc.CallRouter.route(CallRouter.java:242)
+	at com.ibm.ws.management.connector.ipc.IPCConnectorInboundLink.doWork(IPCConnectorInboundLink.java:353)
+	at com.ibm.ws.management.connector.ipc.IPCConnectorInboundLink$IPCConnectorReadCallback.complete(IPCConnectorInboundLink.java:595)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-10 10:21:19,921  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:732)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:376)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$1.run(ApplicationMgrImpl.java:1273)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplicationDynamically(ApplicationMgrImpl.java:1278)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2050)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.startCompositionUnit(CompositionUnitMgrImpl.java:603)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.startCompositionUnit(CompositionUnitMgrImpl.java:565)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:1185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:48)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:600)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:57)
+	at sun.reflect.GeneratedMethodAccessor104.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:600)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260)
+	at javax.management.modelmbean.RequiredModelMBean$4.run(RequiredModelMBean.java:1137)
+	at java.security.AccessController.doPrivileged(AccessController.java:250)
+	at com.ibm.oti.security.CheckedAccessControlContext.securityCheck(CheckedAccessControlContext.java:30)
+	at sun.misc.JavaSecurityAccessWrapper.doIntersectionPrivilege(JavaSecurityAccessWrapper.java:29)
+	at javax.management.modelmbean.RequiredModelMBean.invokeMethod(RequiredModelMBean.java:1131)
+	at javax.management.modelmbean.RequiredModelMBean.invoke(RequiredModelMBean.java:984)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:836)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:762)
+	at com.ibm.ws.management.AdminServiceImpl$1.run(AdminServiceImpl.java:1331)
+	at com.ibm.ws.security.util.AccessController.doPrivileged(AccessController.java:118)
+	at com.ibm.ws.management.AdminServiceImpl.invoke(AdminServiceImpl.java:1224)
+	at com.ibm.ws.management.connector.AdminServiceDelegator.invoke(AdminServiceDelegator.java:181)
+	at com.ibm.ws.management.connector.ipc.CallRouter.route(CallRouter.java:242)
+	at com.ibm.ws.management.connector.ipc.IPCConnectorInboundLink.doWork(IPCConnectorInboundLink.java:353)
+	at com.ibm.ws.management.connector.ipc.IPCConnectorInboundLink$IPCConnectorReadCallback.complete(IPCConnectorInboundLink.java:595)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-11 14:23:30,945  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:729)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:374)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$3.run(ApplicationMgrImpl.java:2056)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2061)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.access$300(CompositionUnitMgrImpl.java:117)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:899)
+	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-11 14:23:30,945  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:729)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:374)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$3.run(ApplicationMgrImpl.java:2056)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2061)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.access$300(CompositionUnitMgrImpl.java:117)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:899)
+	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-11 22:34:31,884  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:729)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:374)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$3.run(ApplicationMgrImpl.java:2056)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2061)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.access$300(CompositionUnitMgrImpl.java:117)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:899)
+	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-11 22:34:31,884  ERROR ContextLoader: Context initialization failed
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
+	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
+	at com.ibm.ws.bootstrap.ExtClassLoader.loadClass(ExtClassLoader.java:111)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:62)
+	at com.ibm.ws.classloader.ProtectionClassLoader.loadClass(ProtectionClassLoader.java:58)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at com.ibm.ws.classloader.CompoundClassLoader.loadClass(CompoundClassLoader.java:543)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:626)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1058)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isBeanClassMatch(AbstractBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:736)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:403)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:334)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:241)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:184)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:49)
+	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:1718)
+	at com.ibm.ws.webcontainer.webapp.WebApp.commonInitializationFinish(WebApp.java:385)
+	at com.ibm.ws.webcontainer.webapp.WebAppImpl.initialize(WebAppImpl.java:299)
+	at com.ibm.ws.webcontainer.webapp.WebGroupImpl.addWebApplication(WebGroupImpl.java:100)
+	at com.ibm.ws.webcontainer.VirtualHostImpl.addWebApplication(VirtualHostImpl.java:166)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApp(WSWebContainer.java:729)
+	at com.ibm.ws.webcontainer.WSWebContainer.addWebApplication(WSWebContainer.java:617)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.install(WebContainerImpl.java:374)
+	at com.ibm.ws.webcontainer.component.WebContainerImpl.start(WebContainerImpl.java:668)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:1128)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.fireDeployedObjectStart(DeployedApplicationImpl.java:1319)
+	at com.ibm.ws.runtime.component.DeployedModuleImpl.start(DeployedModuleImpl.java:611)
+	at com.ibm.ws.runtime.component.DeployedApplicationImpl.start(DeployedApplicationImpl.java:944)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.startApplication(ApplicationMgrImpl.java:741)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl$3.run(ApplicationMgrImpl.java:2056)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAs(ContextManagerImpl.java:5395)
+	at com.ibm.ws.security.auth.ContextManagerImpl.runAsSystem(ContextManagerImpl.java:5483)
+	at com.ibm.ws.security.core.SecurityContext.runAsSystem(SecurityContext.java:255)
+	at com.ibm.ws.runtime.component.ApplicationMgrImpl.start(ApplicationMgrImpl.java:2061)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:389)
+	at com.ibm.ws.runtime.component.CompositionUnitImpl.start(CompositionUnitImpl.java:123)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrImpl.java:332)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.access$300(CompositionUnitMgrImpl.java:117)
+	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:899)
+	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-14 14:02:04,554  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-14 14:02:05,359  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-14 14:02:06,270  INFO  GlobalSettings: Trying to find Dozer configuration file: dozer.properties
+2014-02-14 14:02:06,306  INFO  GlobalSettings: Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+2014-02-14 14:02:06,316  INFO  DozerInitializer: Initializing Dozer.  Version: 5.2.2, Thread Name:WebContainer : 1761
+2014-02-14 14:02:06,324  INFO  JMXPlatformImpl: Unregistering existing Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController].
+2014-02-14 14:02:06,325  INFO  JMXPlatformImpl: Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+2014-02-14 14:02:06,328  INFO  JMXPlatformImpl: Unregistering existing Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController].
+2014-02-14 14:02:06,329  INFO  JMXPlatformImpl: Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+2014-02-14 14:02:06,376  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:06,437  INFO  CustomMappingsLoader: Using the following xml files to load custom mappings for the bean mapper instance: [retrieveByEidMapping.xml]
+2014-02-14 14:02:06,437  INFO  CustomMappingsLoader: Trying to find xml mapping file: retrieveByEidMapping.xml
+2014-02-14 14:02:06,446  INFO  CustomMappingsLoader: Using URL [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml] to load custom xml mappings
+2014-02-14 14:02:06,447  DEBUG DozerResolver: Trying to resolve XML entity with public ID [null] and system ID [http://dozer.sourceforge.net/schema/beanmapping.xsd]
+2014-02-14 14:02:06,447  DEBUG DozerResolver: Trying to locate [beanmapping.xsd] in classpath
+2014-02-14 14:02:06,453  DEBUG DozerResolver: Found beanmapping XML Schema [http://dozer.sourceforge.net/schema/beanmapping.xsd] in classpath
+2014-02-14 14:02:06,471  DEBUG XMLParser: name: configuration
+2014-02-14 14:02:06,483  DEBUG XMLParser: config name: custom-converters
+2014-02-14 14:02:06,483  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:06,483  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,483  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,497  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,497  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,518  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,518  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,524  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,524  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,529  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,529  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,534  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,534  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,542  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,542  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,549  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,549  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,562  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,562  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,568  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,568  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,573  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,573  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,581  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,581  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,586  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,586  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,593  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,593  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,600  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,600  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,609  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,609  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,620  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,620  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,626  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,626  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,633  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,633  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,640  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,640  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,647  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,647  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,657  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,657  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,667  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,667  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,672  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,672  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,680  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,680  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,692  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:06,692  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:06,697  DEBUG XMLParser: name: mapping
+2014-02-14 14:02:06,704  DEBUG XMLParser: config name: class-a
+2014-02-14 14:02:06,704  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:06,712  DEBUG XMLParser: config name: class-b
+2014-02-14 14:02:06,712  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:06,714  DEBUG XMLParser: config name: field
+2014-02-14 14:02:06,715  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:06,725  DEBUG XMLParser: config name: a
+2014-02-14 14:02:06,725  DEBUG XMLParser:   value: returnCode
+2014-02-14 14:02:06,725  DEBUG XMLParser: config name: b
+2014-02-14 14:02:06,725  DEBUG XMLParser:   value: overallReturnCode
+2014-02-14 14:02:06,725  DEBUG XMLParser: config name: field
+2014-02-14 14:02:06,725  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:06,725  DEBUG XMLParser: config name: a
+2014-02-14 14:02:06,725  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:06,725  DEBUG XMLParser: config name: b
+2014-02-14 14:02:06,725  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:06,726  INFO  CustomMappingsLoader: Successfully loaded custom xml mappings from URL: [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml]
+2014-02-14 14:02:07,017  DEBUG DozerInitializer: Tried to perform initialization when Dozer already started.
+2014-02-14 14:02:07,017  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:07,022  INFO  CustomMappingsLoader: Using the following xml files to load custom mappings for the bean mapper instance: [retrieveByEidMapping.xml]
+2014-02-14 14:02:07,022  INFO  CustomMappingsLoader: Trying to find xml mapping file: retrieveByEidMapping.xml
+2014-02-14 14:02:07,022  INFO  CustomMappingsLoader: Using URL [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml] to load custom xml mappings
+2014-02-14 14:02:07,023  DEBUG DozerResolver: Trying to resolve XML entity with public ID [null] and system ID [http://dozer.sourceforge.net/schema/beanmapping.xsd]
+2014-02-14 14:02:07,023  DEBUG DozerResolver: Trying to locate [beanmapping.xsd] in classpath
+2014-02-14 14:02:07,023  DEBUG DozerResolver: Found beanmapping XML Schema [http://dozer.sourceforge.net/schema/beanmapping.xsd] in classpath
+2014-02-14 14:02:07,027  DEBUG XMLParser: name: configuration
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: custom-converters
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,027  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,027  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,028  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,028  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,029  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,029  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:07,030  DEBUG XMLParser: name: mapping
+2014-02-14 14:02:07,030  DEBUG XMLParser: config name: class-a
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: class-b
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: field
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: a
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: returnCode
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: b
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: overallReturnCode
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: field
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: a
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:07,031  DEBUG XMLParser: config name: b
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:07,031  INFO  CustomMappingsLoader: Successfully loaded custom xml mappings from URL: [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml]
+2014-02-14 14:02:07,046  DEBUG DozerInitializer: Tried to perform initialization when Dozer already started.
+2014-02-14 14:02:07,046  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:07,313  DEBUG HandlerConfiguration: Properties read from: AffiliateServiceClient_2_1_0.properties
+2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: Properties after applying overrides: 
+2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: application.password = dkbb0105
+2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: application.username = SASMBMA
+2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: service.endpoint.address = https://soa.pilot.principal.com/ea/affiliateService2.1.0
+2014-02-14 14:02:11,095  DEBUG ServiceEndpointHandler: Processing service endpoint properties, if present
+2014-02-14 14:02:11,095  DEBUG HttpTransportHandler: Processing HTTP transport properties, if present
+2014-02-14 14:02:11,095  DEBUG AppIDUsernameTokenHandler: Creating WSSecurity header for actor AppID
+2014-02-14 14:02:11,656  DEBUG AppIDUsernameTokenHandler: Creating WSSecurity header shell
+2014-02-14 14:02:11,657  DEBUG AppIDUsernameTokenHandler: Adding WSSecurity header data
+2014-02-14 14:02:11,657  DEBUG ObSSOCustomTokenHandler: ObSSO token not specified, skipping
+2014-02-14 14:02:17,269  DEBUG DozerInitializer: Tried to perform initialization when Dozer already started.
+2014-02-14 14:02:17,269  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:17,271  INFO  CustomMappingsLoader: Using the following xml files to load custom mappings for the bean mapper instance: [retrieveByEidMapping.xml]
+2014-02-14 14:02:17,271  INFO  CustomMappingsLoader: Trying to find xml mapping file: retrieveByEidMapping.xml
+2014-02-14 14:02:17,274  INFO  CustomMappingsLoader: Using URL [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml] to load custom xml mappings
+2014-02-14 14:02:17,275  DEBUG DozerResolver: Trying to resolve XML entity with public ID [null] and system ID [http://dozer.sourceforge.net/schema/beanmapping.xsd]
+2014-02-14 14:02:17,275  DEBUG DozerResolver: Trying to locate [beanmapping.xsd] in classpath
+2014-02-14 14:02:17,277  DEBUG DozerResolver: Found beanmapping XML Schema [http://dozer.sourceforge.net/schema/beanmapping.xsd] in classpath
+2014-02-14 14:02:17,280  DEBUG XMLParser: name: configuration
+2014-02-14 14:02:17,280  DEBUG XMLParser: config name: custom-converters
+2014-02-14 14:02:17,280  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,280  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,280  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,280  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,280  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,280  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,280  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,280  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,281  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,281  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,282  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,282  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,283  DEBUG XMLParser: name: mapping
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: class-a
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: class-b
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: field
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,283  DEBUG XMLParser: config name: a
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: returnCode
+2014-02-14 14:02:17,284  DEBUG XMLParser: config name: b
+2014-02-14 14:02:17,284  DEBUG XMLParser:   value: overallReturnCode
+2014-02-14 14:02:17,284  DEBUG XMLParser: config name: field
+2014-02-14 14:02:17,284  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,284  DEBUG XMLParser: config name: a
+2014-02-14 14:02:17,284  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:17,284  DEBUG XMLParser: config name: b
+2014-02-14 14:02:17,284  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:17,284  INFO  CustomMappingsLoader: Successfully loaded custom xml mappings from URL: [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml]
+2014-02-14 14:02:17,298  DEBUG DozerInitializer: Tried to perform initialization when Dozer already started.
+2014-02-14 14:02:17,298  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:17,300  INFO  CustomMappingsLoader: Using the following xml files to load custom mappings for the bean mapper instance: [retrieveByEidMapping.xml]
+2014-02-14 14:02:17,300  INFO  CustomMappingsLoader: Trying to find xml mapping file: retrieveByEidMapping.xml
+2014-02-14 14:02:17,300  INFO  CustomMappingsLoader: Using URL [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml] to load custom xml mappings
+2014-02-14 14:02:17,301  DEBUG DozerResolver: Trying to resolve XML entity with public ID [null] and system ID [http://dozer.sourceforge.net/schema/beanmapping.xsd]
+2014-02-14 14:02:17,301  DEBUG DozerResolver: Trying to locate [beanmapping.xsd] in classpath
+2014-02-14 14:02:17,301  DEBUG DozerResolver: Found beanmapping XML Schema [http://dozer.sourceforge.net/schema/beanmapping.xsd] in classpath
+2014-02-14 14:02:17,304  DEBUG XMLParser: name: configuration
+2014-02-14 14:02:17,304  DEBUG XMLParser: config name: custom-converters
+2014-02-14 14:02:17,304  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,305  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,305  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,306  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,306  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,307  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,307  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: converter
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: 
+				
+2014-02-14 14:02:17,308  DEBUG XMLParser: name: mapping
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: class-a
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:17,308  DEBUG XMLParser: config name: class-b
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: field
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: a
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: returnCode
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: b
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: overallReturnCode
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: field
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: 
+			
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: a
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:17,309  DEBUG XMLParser: config name: b
+2014-02-14 14:02:17,309  DEBUG XMLParser:   value: returnMessage
+2014-02-14 14:02:17,309  INFO  CustomMappingsLoader: Successfully loaded custom xml mappings from URL: [wsjar:file:/var/WebSphere/sharedlibs/is.entapps.service.affiliate.2_1_0/affiliate-service-java-2.1-sources.jar!/retrieveByEidMapping.xml]
+2014-02-14 14:02:17,316  DEBUG DozerInitializer: Tried to perform initialization when Dozer already started.
+2014-02-14 14:02:17,316  INFO  DozerBeanMapper: Initializing a new instance of the dozer bean mapper.
+2014-02-14 14:02:17,348  DEBUG FieldMap: Getting ready to invoke write method on the destination object.  Dest Obj: ResponseStatus, Dest value: NORMAL
+2014-02-14 14:02:17,350  DEBUG MappingProcessor: MAPPED: CommonResponseType21.overallReturnCode --> ResponseStatus.returnCode    VALUES: NORMAL --> NORMAL    MAPID: 
+2014-02-14 14:02:17,355  DEBUG FieldMap: Getting ready to invoke write method on the destination object.  Dest Obj: ResponseStatus, Dest value: NO HIERARCHY ROLES FOUND                                                   
+2014-02-14 14:02:17,355  DEBUG MappingProcessor: MAPPED: CommonResponseType21.returnMessage --> ResponseStatus.returnMessage    VALUES: NO HIERARCHY ROLES FOUND                                                    --> NO HIERARCHY ROLES FOUND                                                       MAPID: 
+2014-02-14 14:02:17,358  DEBUG Logger: &&& PhaseListener user's SSN set to zero due to exception...
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+	at java.lang.Integer.parseInt(Integer.java:470)
+	at java.lang.Integer.parseInt(Integer.java:499)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
+	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:265)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181)
+	at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374)
+	at com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954)
+	at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945)
+	at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592)
+	at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306)
+	at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049)
+	at com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643)
+	at com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784)
+	at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175)
+	at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217)
+	at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161)
+	at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138)
+	at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204)
+	at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775)
+	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
+	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
+2014-02-14 14:02:17,359  DEBUG Logger: &&& PhaseListener OAM user token passed into SecurityAdaptor: ubFci/XUBkjzom2bp1w5UuuzilTlvUlR3R32Akx80E9fpsm0lukdgw/Hp+RUxPvBb6QZetrTplQxmCF8WQH9FSmF4PP6+Bpzx7DawvWg/Q7ccLwXK6flYVhfwHxA5J7DQM7cwbt5JRETmxSXBl3zMYR09snXSzsuIO45dwK9z7UjfWKZhruxmm/w6j47gsfbT8Tn78GssoxVay5U6RgE8eNfxz+AcWZhlBOOHi2zLCqWKrQ6hWZmTxeiErFR9wGRihx1URlO+NXP6dXMqNOcx5h+3tdEsQWYZNhJnHSX1B0EIuW79hA4V5bKqatfcS449a8eqHr5jnbEYnu4higlHl9dlPW+GAzExRZzLh1F+q+MJTIK1hX6SDwz3M+i8YiI5feDafqB10yY/YxF1IHsBjr+UXCqtvHXOeKRtT9DOXU=
+2014-02-14 14:02:17,412  DEBUG Pilot: &&& Comp security call: user ID: B624029; affiliate taxId: 0
+2014-02-14 14:02:17,427  ERROR Pilot: com.principal.mks.compensation.exception.CompensationRootException: Sysid must be exactly 4 characters long.
+2014-02-14 14:02:17,428  FATAL Logger: 
+ 
+ Sysid must be exactly 4 characters long.
+ Sysid must be exactly 4 characters long.
+ [com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:92), com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:188), com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44), com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214), com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96), com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104), com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118), javax.faces.webapp.FacesServlet.service(FacesServlet.java:265), com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507), com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181), com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374), com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820), com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954), com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276), com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945), com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592), com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277), com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049), com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643), com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784), com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175), com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217), com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161), com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138), com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204), com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775), com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905), com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)]
+2014-02-20 19:26:39,798  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-20 19:26:39,813  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-20 19:26:41,118  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-20 19:26:41,141  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-20 19:26:41,329  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-20 19:26:41,559  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@4eee4eee
+2014-02-20 19:26:41,559  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Time to convert EID to TAX ID is:9237
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@55705570
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@184c184c
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-20 19:26:50,385  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-20 19:26:50,388  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-20 19:26:50,391  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-20 19:26:50,391  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-20 19:26:50,392  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@15001500
+2014-02-20 19:26:50,392  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Time to convert EID to TAX ID is:2040
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@860086
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7f227f22
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-20 19:26:52,439  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-20 19:26:52,477  INFO  WebLogFormatter: Starting to format message.
+2014-02-20 19:26:52,480  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-20 19:26:52,480  INFO  WebLogFormatter: Done with details.
+2014-02-20 19:26:52,480  INFO  WebLogMessageBuffer: About to write object.
+2014-02-20 19:26:52,480  INFO  WebLogMessageBuffer: Done writing.
+2014-02-20 19:26:52,487  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 14:59:13,567  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 14:59:13,572  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 14:59:18,199  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 14:59:18,205  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 14:59:18,453  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 14:59:18,456  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 14:59:18,615  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@791e791e
+2014-02-21 14:59:18,616  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Time to convert EID to TAX ID is:7107
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@4daa4daa
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@3c0e3c0e
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 14:59:25,342  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 14:59:25,380  INFO  WebLogFormatter: Starting to format message.
+2014-02-21 14:59:25,384  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-21 14:59:25,384  INFO  WebLogFormatter: Done with details.
+2014-02-21 14:59:25,384  INFO  WebLogMessageBuffer: About to write object.
+2014-02-21 14:59:25,385  INFO  WebLogMessageBuffer: Done writing.
+2014-02-21 14:59:25,396  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 15:11:07,976  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 15:11:07,976  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 15:11:08,978  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 15:11:08,980  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 15:11:08,986  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 15:11:08,986  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 15:11:08,987  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@6f586f58
+2014-02-21 15:11:08,987  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 15:11:09,647  INFO  AffiliateDAO: Time to convert EID to TAX ID is:667
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1a601a6
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@420042
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 15:11:09,648  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 15:11:09,649  INFO  WebLogFormatter: Starting to format message.
+2014-02-21 15:11:09,649  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-21 15:11:09,650  INFO  WebLogFormatter: Done with details.
+2014-02-21 15:11:09,650  INFO  WebLogMessageBuffer: About to write object.
+2014-02-21 15:11:09,650  INFO  WebLogMessageBuffer: Done writing.
+2014-02-21 15:11:09,650  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 17:04:50,494  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 17:04:50,494  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 17:04:51,475  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 17:04:51,487  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 17:04:51,487  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 17:04:51,488  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@48444844
+2014-02-21 17:04:51,488  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Time to convert EID to TAX ID is:772
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@5ef05ef0
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@5d8c5d8c
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 17:04:52,247  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 17:04:52,248  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 17:04:52,256  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 17:04:52,256  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 17:04:52,257  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@757a757a
+2014-02-21 17:04:52,257  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Time to convert EID to TAX ID is:4503
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@9060906
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7a207a2
+2014-02-21 17:04:56,752  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 17:04:56,752  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 17:04:56,753  INFO  WebLogFormatter: Starting to format message.
+2014-02-21 17:04:56,753  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-21 17:04:56,753  INFO  WebLogFormatter: Done with details.
+2014-02-21 17:04:56,753  INFO  WebLogMessageBuffer: About to write object.
+2014-02-21 17:04:56,753  INFO  WebLogMessageBuffer: Done writing.
+2014-02-21 17:04:56,754  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 18:58:09,430  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 18:58:09,438  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 18:58:10,622  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 18:58:10,717  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 18:58:10,913  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 18:58:11,393  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@84e084e
+2014-02-21 18:58:11,393  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Time to convert EID to TAX ID is:14553
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1a901a90
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7ac07ac0
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 18:58:25,202  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 18:58:25,206  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 18:58:25,208  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 18:58:25,208  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 18:58:25,210  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@5b825b82
+2014-02-21 18:58:25,210  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Time to convert EID to TAX ID is:678
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1d8c1d8c
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@1c281c28
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 18:58:25,891  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 18:58:25,927  INFO  WebLogFormatter: Starting to format message.
+2014-02-21 18:58:25,931  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-21 18:58:25,931  INFO  WebLogFormatter: Done with details.
+2014-02-21 18:58:25,931  INFO  WebLogMessageBuffer: About to write object.
+2014-02-21 18:58:25,931  INFO  WebLogMessageBuffer: Done writing.
+2014-02-21 18:58:25,941  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 19:28:16,974  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 19:28:16,996  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 19:28:17,377  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 19:28:17,386  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
+2014-02-21 19:28:17,421  INFO  AffiliateDAO: Successfully set service.endpoint.address property
+2014-02-21 19:28:17,608  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
+2014-02-21 19:28:17,829  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@be60be6
+2014-02-21 19:28:17,830  INFO  AffiliateDAO: Executing AffiliateService
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Time to convert EID to TAX ID is:7518
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@14f214f2
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7c467c46
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 19:28:24,944  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
+2014-02-21 19:28:24,996  INFO  WebLogFormatter: Starting to format message.
+2014-02-21 19:28:24,999  INFO  WebLogFormatter: Done formatting transaction.
+2014-02-21 19:28:24,999  INFO  WebLogFormatter: Done with details.
+2014-02-21 19:28:24,999  INFO  WebLogMessageBuffer: About to write object.
+2014-02-21 19:28:25,000  INFO  WebLogMessageBuffer: Done writing.
+2014-02-21 19:28:25,009  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method 

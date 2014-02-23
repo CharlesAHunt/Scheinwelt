@@ -3,72 +3,85 @@ package controllers
 import org.apache.logging.log4j._
 import play.api.mvc._
 import utils.{LogQueryBuilder, DatabaseService}
-import play.api.data.Form
-import play.api.data.Forms._
-import models.{LogDAO, Log}
+import models.{ApplicationDAO, Application, LogDAO, Log}
 import com.mongodb.casbah.commons.MongoDBObject
-import scala.collection.immutable.StringOps
+import scala.io.Source
+import org.bson.types.ObjectId
 
 object Search extends Controller with Access with DatabaseService {
 
   val logger: Logger = LogManager.getLogger("Logic")
 
   def index = Action { implicit request =>
-    Ok(views.html.index(loginForm, registerForm, searchForm))
+    Ok(views.html.index(loginForm, registerForm))
   }
 
   def search(search: String) = Action {
-    println("search:" + search)
     val stringArray = search.split(":::")
     val jsonBuilder = StringBuilder.newBuilder
-    val queryObject = LogQueryBuilder.apply(Option(stringArray(0)), Option(stringArray(1)), Option(stringArray(2)), Option(stringArray(3)),
-      Option(stringArray(4)), Option(stringArray(5)), Option(stringArray(6)), Option(stringArray(7))).buildQuery()
+    val applicationQuery = LogQueryBuilder.apply(Option(stringArray(0).trim), Option(stringArray(1).trim), Option(stringArray(2).trim),None,None,None,None,None,None).buildQuery()
 
-    println(queryObject)
+    val app = ApplicationDAO.findOne(applicationQuery)
 
+    val application: Application = app match {
+      case Some(a: Application) => app.get
+      case None => generateLogs()
+      case _ => generateLogs()
+    }
+
+    val logQuery = LogQueryBuilder.apply(None, None, None, Option(stringArray(3).trim), Option(stringArray(4).trim),
+      Option(stringArray(5).trim), Option(stringArray(6).trim), Option(stringArray(7).trim), Option(application._id.toString)).buildQuery()
+    println(logQuery)
     jsonBuilder.append("[")
-    getCollection("logs").find(queryObject).foreach( jsonBuilder.append(_).append(",") )
+    getCollection("logs").find(logQuery).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
     jsonBuilder.append("]")
 
     Ok(jsonBuilder.toString())
-
   }
 
   def about = Action { implicit request =>
     Ok(views.html.about(loginForm, registerForm))
   }
 
-  case class LogSearch(environment: String, region:String, application:String, exception:String, message:String, level:String, date:String)
-
-  val searchForm: Form[LogSearch] = Form(
-    mapping(
-      "application" -> text,
-      "environment" -> text,
-      "region" -> text,
-      "level" -> text,
-      "exception" -> text,
-      "message" -> text,
-      "date" -> text
-    )(
-        (environment, region, application, exception, message, level, date) =>
-          LogSearch(environment = environment, region = region, application = application, exception = exception, message = message, level = level, date = date)
-      )(
-        (logSearch: LogSearch) => Option(logSearch.environment, logSearch.region, logSearch.application, logSearch.exception, logSearch.message, logSearch.level, logSearch.date)
-      )
-  )
-
   def searchResults(): List[Log] = {
     LogDAO.find(ref = MongoDBObject()).toList
   }
 
   def generateLogs() = {
+    var logIdList: List[String] = List()
+    val appId = new ObjectId
+    val file = Source.fromFile("public/logs.txt")
 
-    val log = MongoDBObject("application" -> "todo", "exception" -> "java.lang.NoClassDefFoundError", "message" -> "Class definition not found at runtime",
-      "level" -> "ERROR", "trace" -> "stacktrace...", "timeStamp" -> new org.joda.time.DateTime().toString())
+    val logBuilder = StringBuilder.newBuilder
+    file.getLines().foreach( line => if(!line.startsWith("2014-0")) logBuilder.append(line) else logBuilder.append("::-::").append(line))
+    val logGroups = logBuilder.toString().split("::-::")
 
-    getCollection("logs").insert(log)
+    //use a bulk query builder here next time....
+    for(x : String <- logGroups) {
+      try {
+        val date = x.substring(0,10)
+        val time = x.substring(11,19)
+        val level = x.substring(25,30)
+        val message = x.substring(31,x.length-1)
 
+        val log = MongoDBObject("application" -> appId.toString, "message" -> message,
+          "level" -> level, "trace" -> "stacktrace...", "date" -> date ,"time" -> time)
+
+        getCollection("logs").insert(log)
+
+        val id = log.get("_id").toString
+
+        logIdList = id :: logIdList
+      }
+      catch {
+        case e: Exception =>
+      }
+    }
+
+    val application = Application(_id = appId, name = "Pay & Statements", environment = "STA", region = "1", logList = logIdList)
+    ApplicationDAO.insert(application)
+    application
   }
 
 }

@@ -1,4 +1,4 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], searchForm: play.api.data.Form[Search.LogSearch])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
 
 @import helper._
 @import enums._
@@ -11,43 +11,67 @@
             <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
         </div>
         <div class="col-md-4">
-            <h1 style="color: #bfb8e5; margin-top: -20px;">Log.ic</h1>
+            <h1 style="color: #bfb8e5; margin-top: -20px;font-size: 60px;">Log.ic</h1>
             <p class="lead" style="color: #8d79f2;"> Find logs </p>
 
             <div ng-hide="search">
 
                 <fieldset>
-                    @select(field = searchForm("application"), options = options(
-                    controllers.Manage.getApplications().map(_.name)), 'class->"form-control", 'id -> "app", '_label-> "", '_default -> " Choose Application ")
 
-                    @select(field = searchForm("environment"), options = options(
-                    controllers.Manage.getEnvironments().map(_.name)), 'class->"form-control", 'id -> "env", '_label-> "", '_default -> " Choose Environment ")
-
-                    @select(field = searchForm("region"), options = options(
-                    controllers.Manage.getRegions().map(_.name)), 'class->"form-control", 'id -> "region", '_label-> "", '_default -> " Choose Region ")
-
-                    @select(field = searchForm("level"), options = options(
-                    LogLevelEnum.values.toList.map(_.toString)), 'class->"form-control",
-                    '_label-> "", '_default -> " Choose Log Level ", 'id -> "level")
-
+                    <div class="form-group">
+                        <label for="app"></label>
+                        <select id="app" name="application" class="form-control">
+                            <option class="blank" value=""> Choose Application </option>
+                            @for(p <- controllers.Manage.getApplications().map(_.name)) {
+                                <option value="@p">@p</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="env"></label>
+                        <select id="env" name="environment" class="form-control">
+                            <option class="blank" value=""> Choose Environment </option>
+                            @for(p <- controllers.Manage.getEnvironments().map(_.name)) {
+                                <option value="@p">@p</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="region"></label>
+                        <select id="region" name="region" class="form-control">
+                            <option class="blank" value=""> Choose Region </option>
+                            @for(p <- controllers.Manage.getRegions().map(_.name)) {
+                                <option value="@p">@p</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="level"></label>
+                        <select id="level" name="level" class="form-control">
+                            <option class="blank" value=""> Choose Log Level </option>
+                                @for(p <- LogLevelEnum.values) {
+                                    <option value="@p">@p</option>
+                                }
+                        </select>
+                    </div>
                     <div style="color: #8d79f2;">
-                        @inputText( searchForm("exception"), 'class->"form-control", 'placeholder -> "Exception", 'id -> "exception",
-                        '_label -> "Exception")
-
-                        @inputText( searchForm("message"), 'class->"form-control", 'placeholder -> "Message", 'id -> "message",
-                        '_label -> "Message" )
-
-                        @inputText( searchForm("beforeDate"), 'class->"form-control", 'placeholder -> "Before Date", 'id -> "beforeDate",
-                        '_label -> "Before Date" )
-
-                        @inputText( searchForm("afterDate"), 'class->"form-control", 'placeholder -> "After Date", 'id -> "afterDate",
-                        '_label -> "After Date" )
+                        <div class="form-group">
+                            <input type="text" id="exception" name="exception" class="form-control" placeholder="Exception">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="message" name="message" class="form-control" placeholder="Message">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="beforeDate" name="beforeDate" class="form-control" placeholder="Before Date">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="afterDate" name="afterDate" class="form-control" placeholder="After Date">
+                        </div>
                     </div>
 
                 </fieldset>
-
+                <br>
                 <a class="btn btn-lg btn-success" ng-click="doSearch();search=!search">Search</a>
-
             </div>
         </div>
 
@@ -60,7 +84,7 @@
             <br><br>
             <div class="well">
 
-                <div ng-repeat="log in logData track by $index">
+                <div ng-repeat="log in logData track by $index" align="left">
                     <span class="">{{log.level}}</span>
                     <span class="">{{log.message}}</span>
                     <span class="">{{log.exception}}</span>
