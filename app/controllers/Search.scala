@@ -21,10 +21,11 @@ object Search extends Controller with Access with DatabaseService {
     val jsonBuilder = StringBuilder.newBuilder
     val applicationQuery = LogQueryBuilder.apply(Option(stringArray(0).trim), Option(stringArray(1).trim), Option(stringArray(2).trim),None,None,None,None,None,None).buildQuery()
 
-    val app = ApplicationDAO.findOne(applicationQuery)
+    val app = Option(ApplicationDAO.findOne(applicationQuery))
+//    val app = Option(None)
 
     val application: Application = app match {
-      case Some(a: Application) => app.get
+      case Some(a: Application) => a.get
       case None => generateLogs()
       case _ => generateLogs()
     }

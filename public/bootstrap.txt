@@ -2,8 +2,8 @@
 2014-01-24 12:01:24,248  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-01-24 12:01:35,089  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-01-24 12:01:36,504  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
-2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.searchForLatestStatements() method #####
-2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.getStatementList() method #####
+2014-01-24 12:01:36,605  INFO  Logger: ##### Begin ApplicationViewBean.searchForLatestStatements() method #####
+2014-01-24 12:01:36,605  INFO  Logger: ##### Begin ApplicationViewBean.getStatementList() method #####
 2014-01-24 12:01:36,806  DEBUG Connection: {conn-100000} Connection
 2014-01-24 12:01:36,815  DEBUG Connection: {conn-100000} Preparing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
 2014-01-24 12:01:36,821  DEBUG PreparedStatement: {pstm-100001} Executing Statement:    SELECT STMT_TYP_LBL_CD as labelCode,STMT_TYP_TXT as text FROM MAR_STMT_TYP_DM   UNION   SELECT DOC_TYP_LBL_CD as labelCode, DOC_TYP_TXT as text FROM MAR_DOC_TYP_DM;  
@@ -47,8 +47,8 @@
 2014-01-24 12:01:37,773  INFO  Logger: ##### AccessController: Adding user tax ID to list.
 2014-01-24 12:01:37,773  INFO  Logger: ##### User : V868394
 2014-01-24 12:01:37,773  INFO  Logger: ##### Search for Tax Ids :[373642587]
-2014-01-24 12:01:37,773  INFO  Logger: ##### Begin PayAndStatementsViewBean.getDocList() method #####
-2014-01-24 12:01:37,774  INFO  Logger: ##### END PayAndStatementsViewBean.getDocList() method #####
+2014-01-24 12:01:37,773  INFO  Logger: ##### Begin ApplicationViewBean.getDocList() method #####
+2014-01-24 12:01:37,774  INFO  Logger: ##### END ApplicationViewBean.getDocList() method #####
 2014-01-24 12:01:37,774  INFO  Logger: ##### Begin SearchForStatementsDAOImpl.searchForStatements() method #####
 2014-01-24 12:01:37,831  DEBUG Connection: {conn-100007} Connection
 2014-01-24 12:01:38,002  DEBUG Connection: {conn-100007} Preparing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS WidgeterName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
@@ -93,8 +93,8 @@
 2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: About to write object.
 2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: Done writing.
 2014-01-24 12:01:46,980  INFO  Logger: ##### END ModuleViewBean.getModule method #####
-2014-01-24 12:01:46,980  INFO  Logger: ##### END PayAndStatementsViewBean.getStatementList() method #####
-2014-01-24 12:01:46,981  INFO  Logger: ##### END PayAndStatementsViewBean.searchForLatestStatements() method #####
+2014-01-24 12:01:46,980  INFO  Logger: ##### END ApplicationViewBean.getStatementList() method #####
+2014-01-24 12:01:46,981  INFO  Logger: ##### END ApplicationViewBean.searchForLatestStatements() method #####
 2014-01-24 12:02:02,993  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
 2014-01-24 12:02:02,999  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-01-24 12:02:03,002  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
