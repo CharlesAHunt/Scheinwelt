@@ -7,10 +7,10 @@
 
 <div class="jumbotron" ng-controller="LogicController">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <canvas id="myChart" width="200" height="200" style="margin-top: 40px;"></canvas>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <h1 style="color: #bfb8e5; margin-top: -20px;font-size: 60px;">Log.ic</h1>
             <p class="lead" style="color: #8d79f2;"> Find logs </p>
 
@@ -54,18 +54,18 @@
                                 }
                         </select>
                     </div>
-                    <div style="color: #8d79f2;">
+                    <div style="color: #8d79f2;"  onmouseover="$('.datepicker').datepicker({format: 'yyyy-mm-dd'});">
                         <div class="form-group">
-                            <input type="text" id="exception" name="exception" class="form-control" placeholder="Exception">
+                            <input type="text" id="exception" name="exception" class="form-control" placeholder="Exception (ex: 'java.lang.NullPointerException')">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="message" name="message" class="form-control" placeholder="Message">
+                            <input type="text" id="message" name="message" class="form-control" placeholder="Log Message (ex: 'is' returns all log messages containing 'is')">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="beforeDate" name="beforeDate" class="form-control" placeholder="Before Date">
+                            <input type="text" id="beforeDate" name="beforeDate" class="form-control datepicker input-append" placeholder=" Before Date">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="afterDate" name="afterDate" class="form-control" placeholder="After Date">
+                            <input type="text" id="afterDate" name="afterDate" class="form-control datepicker input-append" placeholder=" After Date">
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <canvas id="myChart2" width="250" height="250"></canvas>
         </div>
 
@@ -88,6 +88,10 @@
                     <span class="">{{log.level}}</span>
                     <span class="">{{log.message}}</span>
                     <span class="">{{log.exception}}</span>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1" ng-show="search">
+                    <span class="">NO RESULTS</span>
                 </div>
 
             </div>
