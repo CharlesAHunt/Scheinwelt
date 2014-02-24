@@ -22,7 +22,6 @@ object Search extends Controller with Access with DatabaseService {
     val applicationQuery = LogQueryBuilder.apply(Option(stringArray(0).trim), Option(stringArray(1).trim), Option(stringArray(2).trim),None,None,None,None,None,None).buildQuery()
 
     val app = Option(ApplicationDAO.find(applicationQuery).next())
-//    val app = Option(None)
 
     val application: Application = app match {
       case Some(a: Application) => a
