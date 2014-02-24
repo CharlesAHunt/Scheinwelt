@@ -6,11 +6,11 @@ trait DatabaseService {
   //todo: move connection information into application.conf
 //  val mongoClient = MongoClient("localhost", 27017)
 
- val mongoConn = MongoConnection("ds061238.mongolab.com", 61238)
+ val mongoClient = MongoClient("ds061238.mongolab.com", 61238)
 
   def getCollection(collectionName: String): MongoCollection = {
         //val db = mongoClient("logicdb")
-    val db = mongoConn("heroku_app20997644")
+    val db = mongoClient("heroku_app20997644")
     db.authenticate("logicuser", "philo123")
 
 

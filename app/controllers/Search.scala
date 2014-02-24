@@ -51,7 +51,7 @@ object Search extends Controller with Access with DatabaseService {
   def generateLogs() = {
     var logIdList: List[String] = List()
     val appId = new ObjectId
-    val file = Source.fromFile("public/logs.txt")
+    val file = Source.fromFile("public/bootstrap.txt")
 
     val logBuilder = StringBuilder.newBuilder
     file.getLines().foreach( line => if(!line.startsWith("2014-0")) logBuilder.append(line) else logBuilder.append("::-::").append(line))
