@@ -1,6 +1,6 @@
-2014-01-24 12:01:24,158  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-01-24 12:01:24,248  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-01-24 12:01:35,089  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:01:24,158  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:01:24,248  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:01:35,089  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-01-24 12:01:36,504  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.searchForLatestStatements() method #####
 2014-01-24 12:01:36,605  INFO  Logger: ##### Begin PayAndStatementsViewBean.getStatementList() method #####
@@ -16,7 +16,7 @@
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#EAR_STMT#, Earnings Report                                             ]
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#MGR_STMT#, Management Comp                                             ]
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#PRD_STMT#, Individual Commissions                                      ]
-2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_ALN#, Marketing Alliance                                          ]
+2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_ALN#, Widgeting Alliance                                          ]
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_ERN#, Producer Earnings Report                                    ]
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_GPC#, Group and Pension Statement                                 ]
 2014-01-24 12:01:36,926  DEBUG ResultSet: {rset-100002} Result: [#STTP_IND#, Individual Statement                                        ]
@@ -51,8 +51,8 @@
 2014-01-24 12:01:37,774  INFO  Logger: ##### END PayAndStatementsViewBean.getDocList() method #####
 2014-01-24 12:01:37,774  INFO  Logger: ##### Begin SearchForStatementsDAOImpl.searchForStatements() method #####
 2014-01-24 12:01:37,831  DEBUG Connection: {conn-100007} Connection
-2014-01-24 12:01:38,002  DEBUG Connection: {conn-100007} Preparing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS marketerName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
-2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Executing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS marketerName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
+2014-01-24 12:01:38,002  DEBUG Connection: {conn-100007} Preparing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS WidgeterName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
+2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Executing Statement:    SELECT * FROM(           SELECT  mk.MKTR_DE_ID AS deId,                   mk.MKTR_TAX_ID AS taxId,                   mdf.DOC_TYP_CD AS typeLabel,                   mdf.MKTR_STATE_CD AS statementCode,                   mk.FIRM_NM AS WidgeterName,                   mdf.RUN_DT AS reportingPeriodEndDate,                   mdf.CRT_TS AS creationDate,                   char(mdf.CRT_TS) AS creationTimeStamp,                   mdf.REMARKS_TXT AS revisedFlag,                   mdf.REMARKS_TXT AS remarksTxt,                   mdf.MKTR_ENV AS environment,                   mk.OFC_PRFX_CD AS officePrefixCd,                   mk.OFC_ID AS officeId,                   mk.OFC_UNIT_CD AS officeUnitCd,                   DENSE_RANK() OVER                   (PARTITION BY mk.MKTR_TAX_ID,mdf.DOC_TYP_CD,mdf.MKTR_STATE_CD           ORDER BY mdf.run_dt DESC,mdf.CRT_TS DESC) AS Rank           FROM scb.MKTR_DRCT_FLDR AS mdf                INNER JOIN scb.MFLDR_X_MDRCTFLDR AS dm ON dm.TRGT_ITM_ID=mdf.TRGT_ITM_ID                INNER JOIN scb.SMB_MKTR_FLDR AS mk ON mk.SRCE_ITM_ID=dm.SRCE_ITM_ID           WHERE            mdf.ENT_TYP_CD='DE'                       AND DOC_TYP_CD NOT IN       (      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      ,      ?      )                 AND mk.MKTR_TAX_ID IN       (      ?      )                       AND mdf.RUN_DT BETWEEN ? and ?                                    AND mdf.VW_FLG IN (0)        ) WHERE Rank <= 3  
 2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Parameters: [#ANN_STMT#, #BEA_AGMT#, #MGR_STMT#, #PRD_STMT#, #EAR_STMT#, #STTP_002#, #UNT_STMT#, #VAR_STMT#, 373642587, 2013-12-24 00:00:00.0, 2014-01-24 00:00:00.0]
 2014-01-24 12:01:38,002  DEBUG PreparedStatement: {pstm-100008} Types: [java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer, java.sql.Timestamp, java.sql.Timestamp]
 2014-01-24 12:01:43,835  DEBUG ResultSet: {rset-100009} ResultSet
@@ -68,7 +68,7 @@
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#EAR_STMT#, Earnings Report                                             ]
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#MGR_STMT#, Management Comp                                             ]
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#PRD_STMT#, Individual Commissions                                      ]
-2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_ALN#, Marketing Alliance                                          ]
+2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_ALN#, Widgeting Alliance                                          ]
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_ERN#, Producer Earnings Report                                    ]
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_GPC#, Group and Pension Statement                                 ]
 2014-01-24 12:01:43,849  DEBUG ResultSet: {rset-100012} Result: [#STTP_IND#, Individual Statement                                        ]
@@ -86,48 +86,48 @@
 2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#UNT_STMT#, Unit Comp                                                   ]
 2014-01-24 12:01:43,850  DEBUG ResultSet: {rset-100012} Result: [#VAR_STMT#, Variable Comp                                               ]
 2014-01-24 12:01:43,850  INFO  Logger: ##### END SearchForStatementsDAOImpl.searchForStatements() method #####
-2014-01-24 12:01:43,883  INFO  Logger: ##### Begin EagleStatementsViewBean.getEagleStatements method #####
+2014-01-24 12:01:43,883  INFO  Logger: ##### Begin ModuleViewBean.getModule method #####
 2014-01-24 12:01:46,955  INFO  WebLogFormatter: Starting to format message.
 2014-01-24 12:01:46,965  INFO  WebLogFormatter: Done formatting transaction.
 2014-01-24 12:01:46,965  INFO  WebLogFormatter: Done with details.
 2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: About to write object.
 2014-01-24 12:01:46,965  INFO  WebLogMessageBuffer: Done writing.
-2014-01-24 12:01:46,980  INFO  Logger: ##### END EagleStatementsViewBean.getEagleStatements method #####
+2014-01-24 12:01:46,980  INFO  Logger: ##### END ModuleViewBean.getModule method #####
 2014-01-24 12:01:46,980  INFO  Logger: ##### END PayAndStatementsViewBean.getStatementList() method #####
 2014-01-24 12:01:46,981  INFO  Logger: ##### END PayAndStatementsViewBean.searchForLatestStatements() method #####
-2014-01-24 12:02:02,993  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-01-24 12:02:02,999  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-01-24 12:02:03,002  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
-2014-01-24 12:09:37,567  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-01-24 12:09:37,574  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-01-24 12:09:39,781  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:02:02,993  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:02:02,999  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:02:03,002  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:09:37,567  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:09:37,574  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:09:39,781  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-01-24 12:09:40,926  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
-2014-01-24 12:13:38,073  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-01-24 12:13:38,083  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-01-24 12:13:38,398  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-01-24 12:13:38,073  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-01-24 12:13:38,083  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-01-24 12:13:38,398  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-01-24 12:13:38,494  INFO  WebLogFormatter: Starting to format message.
 2014-01-24 12:13:38,494  INFO  WebLogFormatter: Done formatting transaction.
 2014-01-24 12:13:38,494  INFO  WebLogFormatter: Done with details.
 2014-01-24 12:13:38,494  INFO  WebLogMessageBuffer: About to write object.
 2014-01-24 12:13:38,494  INFO  WebLogMessageBuffer: Done writing.
 2014-01-24 12:13:46,345  INFO  Logger: ##### Begin RenderStatementServlet.doGet() method #####
-2014-01-24 12:13:46,345  INFO  Logger: ##### Begin RenderStatementServlet.renderEagleStatements() method #####
+2014-01-24 12:13:46,345  INFO  Logger: ##### Begin RenderStatementServlet.renderModule() method #####
 2014-01-24 12:13:48,339  INFO  Logger: ##### Begin RenderStatementServlet.sendEagleStmtsPDF() method #####
 2014-01-24 12:13:48,680  INFO  WebLogFormatter: Starting to format message.
 2014-01-24 12:13:48,680  INFO  WebLogFormatter: Done formatting transaction.
 2014-01-24 12:13:48,680  INFO  WebLogFormatter: Done with details.
 2014-01-24 12:13:48,680  INFO  WebLogMessageBuffer: About to write object.
 2014-01-24 12:13:48,680  INFO  WebLogMessageBuffer: Done writing.
-2014-02-03 09:31:43,944  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-03 09:31:44,031  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-03 09:31:43,944  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-03 09:31:44,031  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-03 09:31:53,874  FATAL Logger: 
  
- com.principal.mks.commons.signon.UserSignonException
-	at com.principal.mks.commons.signon.util.IDConverter.convertEidToTaxId(IDConverter.java:43)
-	at com.principal.mks.commons.signon.UserSignon.convertTaxId(UserSignon.java:123)
-	at com.principal.mks.commons.signon.UserCredentials.getTaxId(UserCredentials.java:120)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+ com.abc.mks.commons.signon.UserSignonException
+	at com.abc.mks.commons.signon.util.IDConverter.convertEidToTaxId(IDConverter.java:43)
+	at com.abc.mks.commons.signon.UserSignon.convertTaxId(UserSignon.java:123)
+	at com.abc.mks.commons.signon.UserCredentials.getTaxId(UserCredentials.java:120)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
 	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
 	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
 	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
@@ -160,15 +160,15 @@
 	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 
-2014-02-04 09:35:20,849  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-04 09:35:21,049  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-04 09:35:20,849  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-04 09:35:21,049  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-04 09:35:31,675  FATAL Logger: 
  
  java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
-	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
-	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.abc.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.abc.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
 	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
 	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
 	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
@@ -201,15 +201,15 @@
 	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 
-2014-02-05 08:52:33,122  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-05 08:52:33,250  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-05 08:52:33,122  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-05 08:52:33,250  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-05 08:52:43,952  FATAL Logger: 
  
  java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
-	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
-	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.abc.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.abc.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
 	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
 	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
 	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
@@ -240,15 +240,15 @@
 	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 
-2014-02-05 11:15:45,170  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-05 11:15:45,181  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-05 11:15:45,170  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-05 11:15:45,181  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-05 11:15:57,798  FATAL Logger: 
  
  java.lang.IllegalArgumentException: IWAA0124E: String 'TESTHYATTTERM713' exceeds the maximum length of 8 for parameter com95492__passed__user__id.
-	at com.principal.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
-	at com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.abc.mks.compensation.service.cics.COM95492.setCom95492__passed__user__id(COM95492.java:522)
+	at com.abc.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:66)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:173)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
 	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
 	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
 	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
@@ -282,8 +282,8 @@
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 
 2014-02-10 10:21:19,921  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -366,8 +366,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-10 10:21:19,921  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -450,8 +450,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-11 14:23:30,945  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -501,8 +501,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-11 14:23:30,945  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -552,8 +552,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-11 22:34:31,884  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -603,8 +603,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-11 22:34:31,884  ERROR ContextLoader: Context initialization failed
-org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade] for bean with name 'marketerFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
-Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.dao.facade.MarketerDAOFacade
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade] for bean with name 'WidgeterFacade' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
+Caused by: java.lang.ClassNotFoundException: com.abc.mks.persist.Widgeter.dao.facade.WidgeterDAOFacade
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:423)
 	at com.ibm.ws.bootstrap.ExtClassLoader.findClass(ExtClassLoader.java:191)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:660)
@@ -653,8 +653,8 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 	at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:899)
 	at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:496)
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
-2014-02-14 14:02:04,554  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-14 14:02:05,359  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-14 14:02:04,554  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-14 14:02:05,359  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-14 14:02:06,270  INFO  GlobalSettings: Trying to find Dozer configuration file: dozer.properties
 2014-02-14 14:02:06,306  INFO  GlobalSettings: Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
 2014-02-14 14:02:06,316  INFO  DozerInitializer: Initializing Dozer.  Version: 5.2.2, Thread Name:WebContainer : 1761
@@ -753,9 +753,9 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 				
 2014-02-14 14:02:06,697  DEBUG XMLParser: name: mapping
 2014-02-14 14:02:06,704  DEBUG XMLParser: config name: class-a
-2014-02-14 14:02:06,704  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:06,704  DEBUG XMLParser:   value: com.abc.service.affiliate.ResponseStatus
 2014-02-14 14:02:06,712  DEBUG XMLParser: config name: class-b
-2014-02-14 14:02:06,712  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:06,712  DEBUG XMLParser:   value: com.abc.is.ea.affiliate.ws.CommonResponseType21
 2014-02-14 14:02:06,714  DEBUG XMLParser: config name: field
 2014-02-14 14:02:06,715  DEBUG XMLParser:   value: 
 			
@@ -863,9 +863,9 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 				
 2014-02-14 14:02:07,030  DEBUG XMLParser: name: mapping
 2014-02-14 14:02:07,030  DEBUG XMLParser: config name: class-a
-2014-02-14 14:02:07,030  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:07,030  DEBUG XMLParser:   value: com.abc.service.affiliate.ResponseStatus
 2014-02-14 14:02:07,031  DEBUG XMLParser: config name: class-b
-2014-02-14 14:02:07,031  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:07,031  DEBUG XMLParser:   value: com.abc.is.ea.affiliate.ws.CommonResponseType21
 2014-02-14 14:02:07,031  DEBUG XMLParser: config name: field
 2014-02-14 14:02:07,031  DEBUG XMLParser:   value: 
 			
@@ -887,7 +887,7 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: Properties after applying overrides: 
 2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: application.password = dkbb0105
 2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: application.username = SASMBMA
-2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: service.endpoint.address = https://soa.pilot.principal.com/ea/affiliateService2.1.0
+2014-02-14 14:02:07,315  DEBUG HandlerConfiguration: service.endpoint.address = https://soa.pilot.abc.com/ea/affiliateService2.1.0
 2014-02-14 14:02:11,095  DEBUG ServiceEndpointHandler: Processing service endpoint properties, if present
 2014-02-14 14:02:11,095  DEBUG HttpTransportHandler: Processing HTTP transport properties, if present
 2014-02-14 14:02:11,095  DEBUG AppIDUsernameTokenHandler: Creating WSSecurity header for actor AppID
@@ -986,9 +986,9 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 				
 2014-02-14 14:02:17,283  DEBUG XMLParser: name: mapping
 2014-02-14 14:02:17,283  DEBUG XMLParser: config name: class-a
-2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.abc.service.affiliate.ResponseStatus
 2014-02-14 14:02:17,283  DEBUG XMLParser: config name: class-b
-2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:17,283  DEBUG XMLParser:   value: com.abc.is.ea.affiliate.ws.CommonResponseType21
 2014-02-14 14:02:17,283  DEBUG XMLParser: config name: field
 2014-02-14 14:02:17,283  DEBUG XMLParser:   value: 
 			
@@ -1096,9 +1096,9 @@ Caused by: java.lang.ClassNotFoundException: com.principal.mks.persist.marketer.
 				
 2014-02-14 14:02:17,308  DEBUG XMLParser: name: mapping
 2014-02-14 14:02:17,308  DEBUG XMLParser: config name: class-a
-2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.principal.service.affiliate.ResponseStatus
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.abc.service.affiliate.ResponseStatus
 2014-02-14 14:02:17,308  DEBUG XMLParser: config name: class-b
-2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.principal.is.ea.affiliate.ws.CommonResponseType21
+2014-02-14 14:02:17,308  DEBUG XMLParser:   value: com.abc.is.ea.affiliate.ws.CommonResponseType21
 2014-02-14 14:02:17,309  DEBUG XMLParser: config name: field
 2014-02-14 14:02:17,309  DEBUG XMLParser:   value: 
 			
@@ -1125,8 +1125,8 @@ java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
 	at java.lang.Integer.parseInt(Integer.java:470)
 	at java.lang.Integer.parseInt(Integer.java:499)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
-	at com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:159)
+	at com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44)
 	at com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214)
 	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96)
 	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104)
@@ -1160,33 +1160,33 @@ java.lang.NumberFormatException: For input string: ""
 	at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)
 2014-02-14 14:02:17,359  DEBUG Logger: &&& PhaseListener OAM user token passed into SecurityAdaptor: ubFci/XUBkjzom2bp1w5UuuzilTlvUlR3R32Akx80E9fpsm0lukdgw/Hp+RUxPvBb6QZetrTplQxmCF8WQH9FSmF4PP6+Bpzx7DawvWg/Q7ccLwXK6flYVhfwHxA5J7DQM7cwbt5JRETmxSXBl3zMYR09snXSzsuIO45dwK9z7UjfWKZhruxmm/w6j47gsfbT8Tn78GssoxVay5U6RgE8eNfxz+AcWZhlBOOHi2zLCqWKrQ6hWZmTxeiErFR9wGRihx1URlO+NXP6dXMqNOcx5h+3tdEsQWYZNhJnHSX1B0EIuW79hA4V5bKqatfcS449a8eqHr5jnbEYnu4higlHl9dlPW+GAzExRZzLh1F+q+MJTIK1hX6SDwz3M+i8YiI5feDafqB10yY/YxF1IHsBjr+UXCqtvHXOeKRtT9DOXU=
 2014-02-14 14:02:17,412  DEBUG Pilot: &&& Comp security call: user ID: B624029; affiliate taxId: 0
-2014-02-14 14:02:17,427  ERROR Pilot: com.principal.mks.compensation.exception.CompensationRootException: Sysid must be exactly 4 characters long.
+2014-02-14 14:02:17,427  ERROR Pilot: com.abc.mks.compensation.exception.CompensationRootException: Sysid must be exactly 4 characters long.
 2014-02-14 14:02:17,428  FATAL Logger: 
  
  Sysid must be exactly 4 characters long.
  Sysid must be exactly 4 characters long.
- [com.principal.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:92), com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:188), com.principal.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44), com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214), com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96), com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104), com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118), javax.faces.webapp.FacesServlet.service(FacesServlet.java:265), com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507), com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181), com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374), com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820), com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954), com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276), com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945), com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592), com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277), com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049), com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643), com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784), com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175), com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217), com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161), com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138), com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204), com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775), com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905), com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)]
-2014-02-20 19:26:39,798  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-20 19:26:39,813  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+ [com.abc.mks.compensation.service.CompensationSecurityAdapter.getUser(CompensationSecurityAdapter.java:92), com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.processPreprocess(RequestProcessorPhaseListener.java:188), com.abc.mks.mktrpobmntn.phaselisteners.RequestProcessorPhaseListener.beforePhase(RequestProcessorPhaseListener.java:44), com.sun.faces.lifecycle.Phase.handleBeforePhase(Phase.java:214), com.sun.faces.lifecycle.Phase.doPhase(Phase.java:96), com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:104), com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118), javax.faces.webapp.FacesServlet.service(FacesServlet.java:265), com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1661), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:944), com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:507), com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:181), com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:374), com.ibm.ws.webcontainer.extension.DefaultExtensionProcessor.handleRequest(DefaultExtensionProcessor.java:820), com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3954), com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276), com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:945), com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1592), com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:191), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:453), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:515), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:306), com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:277), com.ibm.ws.ssl.channel.impl.SSLConnectionLink.determineNextChannel(SSLConnectionLink.java:1049), com.ibm.ws.ssl.channel.impl.SSLConnectionLink$MyReadCompletedCallback.complete(SSLConnectionLink.java:643), com.ibm.ws.ssl.channel.impl.SSLReadServiceContext$SSLReadCompletedCallback.complete(SSLReadServiceContext.java:1784), com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:175), com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217), com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161), com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138), com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204), com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775), com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905), com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1656)]
+2014-02-20 19:26:39,798  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-20 19:26:39,813  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-20 19:26:41,118  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-20 19:26:41,141  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-20 19:26:41,329  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-20 19:26:41,559  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@4eee4eee
+2014-02-20 19:26:41,559  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@4eee4eee
 2014-02-20 19:26:41,559  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-20 19:26:50,358  INFO  AffiliateDAO: Time to convert EID to TAX ID is:9237
-2014-02-20 19:26:50,358  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@55705570
-2014-02-20 19:26:50,358  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@184c184c
-2014-02-20 19:26:50,358  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
-2014-02-20 19:26:50,385  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@55705570
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@184c184c
+2014-02-20 19:26:50,358  INFO  AffiliateDAO: Gov Assigned ID is: null
+2014-02-20 19:26:50,385  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-20 19:26:50,388  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-20 19:26:50,391  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-20 19:26:50,391  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-20 19:26:50,392  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@15001500
+2014-02-20 19:26:50,392  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@15001500
 2014-02-20 19:26:50,392  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-20 19:26:52,428  INFO  AffiliateDAO: Time to convert EID to TAX ID is:2040
-2014-02-20 19:26:52,428  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@860086
-2014-02-20 19:26:52,428  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7f227f22
-2014-02-20 19:26:52,428  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@860086
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@7f227f22
+2014-02-20 19:26:52,428  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-20 19:26:52,439  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-20 19:26:52,477  INFO  WebLogFormatter: Starting to format message.
 2014-02-20 19:26:52,480  INFO  WebLogFormatter: Done formatting transaction.
@@ -1194,18 +1194,18 @@ java.lang.NumberFormatException: For input string: ""
 2014-02-20 19:26:52,480  INFO  WebLogMessageBuffer: About to write object.
 2014-02-20 19:26:52,480  INFO  WebLogMessageBuffer: Done writing.
 2014-02-20 19:26:52,487  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
-2014-02-21 14:59:13,567  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-21 14:59:13,572  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-02-21 14:59:18,199  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 14:59:13,567  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 14:59:13,572  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 14:59:18,199  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-21 14:59:18,205  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 14:59:18,453  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 14:59:18,456  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 14:59:18,615  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@791e791e
+2014-02-21 14:59:18,615  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@791e791e
 2014-02-21 14:59:18,616  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 14:59:25,315  INFO  AffiliateDAO: Time to convert EID to TAX ID is:7107
-2014-02-21 14:59:25,315  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@4daa4daa
-2014-02-21 14:59:25,315  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@3c0e3c0e
-2014-02-21 14:59:25,315  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@4daa4daa
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@3c0e3c0e
+2014-02-21 14:59:25,315  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-21 14:59:25,342  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-21 14:59:25,380  INFO  WebLogFormatter: Starting to format message.
 2014-02-21 14:59:25,384  INFO  WebLogFormatter: Done formatting transaction.
@@ -1213,18 +1213,18 @@ java.lang.NumberFormatException: For input string: ""
 2014-02-21 14:59:25,384  INFO  WebLogMessageBuffer: About to write object.
 2014-02-21 14:59:25,385  INFO  WebLogMessageBuffer: Done writing.
 2014-02-21 14:59:25,396  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
-2014-02-21 15:11:07,976  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-21 15:11:07,976  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-02-21 15:11:08,978  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 15:11:07,976  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 15:11:07,976  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 15:11:08,978  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-21 15:11:08,980  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 15:11:08,986  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 15:11:08,986  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 15:11:08,987  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@6f586f58
+2014-02-21 15:11:08,987  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@6f586f58
 2014-02-21 15:11:08,987  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 15:11:09,647  INFO  AffiliateDAO: Time to convert EID to TAX ID is:667
-2014-02-21 15:11:09,648  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1a601a6
-2014-02-21 15:11:09,648  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@420042
-2014-02-21 15:11:09,648  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 15:11:09,647  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@1a601a6
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@420042
+2014-02-21 15:11:09,648  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-21 15:11:09,648  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-21 15:11:09,649  INFO  WebLogFormatter: Starting to format message.
 2014-02-21 15:11:09,649  INFO  WebLogFormatter: Done formatting transaction.
@@ -1232,27 +1232,27 @@ java.lang.NumberFormatException: For input string: ""
 2014-02-21 15:11:09,650  INFO  WebLogMessageBuffer: About to write object.
 2014-02-21 15:11:09,650  INFO  WebLogMessageBuffer: Done writing.
 2014-02-21 15:11:09,650  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
-2014-02-21 17:04:50,494  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-21 17:04:50,494  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 17:04:50,494  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 17:04:50,494  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-21 17:04:51,475  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 17:04:51,487  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 17:04:51,487  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 17:04:51,488  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@48444844
+2014-02-21 17:04:51,488  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@48444844
 2014-02-21 17:04:51,488  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 17:04:52,247  INFO  AffiliateDAO: Time to convert EID to TAX ID is:772
-2014-02-21 17:04:52,247  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@5ef05ef0
-2014-02-21 17:04:52,247  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@5d8c5d8c
-2014-02-21 17:04:52,247  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
-2014-02-21 17:04:52,247  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@5ef05ef0
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@5d8c5d8c
+2014-02-21 17:04:52,247  INFO  AffiliateDAO: Gov Assigned ID is: null
+2014-02-21 17:04:52,247  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-21 17:04:52,248  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 17:04:52,256  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 17:04:52,256  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 17:04:52,257  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@757a757a
+2014-02-21 17:04:52,257  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@757a757a
 2014-02-21 17:04:52,257  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 17:04:56,751  INFO  AffiliateDAO: Time to convert EID to TAX ID is:4503
-2014-02-21 17:04:56,751  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@9060906
-2014-02-21 17:04:56,751  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7a207a2
-2014-02-21 17:04:56,752  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@9060906
+2014-02-21 17:04:56,751  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@7a207a2
+2014-02-21 17:04:56,752  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-21 17:04:56,752  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-21 17:04:56,753  INFO  WebLogFormatter: Starting to format message.
 2014-02-21 17:04:56,753  INFO  WebLogFormatter: Done formatting transaction.
@@ -1260,27 +1260,27 @@ java.lang.NumberFormatException: For input string: ""
 2014-02-21 17:04:56,753  INFO  WebLogMessageBuffer: About to write object.
 2014-02-21 17:04:56,753  INFO  WebLogMessageBuffer: Done writing.
 2014-02-21 17:04:56,754  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
-2014-02-21 18:58:09,430  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-21 18:58:09,438  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 18:58:09,430  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 18:58:09,438  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
 2014-02-21 18:58:10,622  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 18:58:10,717  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 18:58:10,913  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 18:58:11,393  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@84e084e
+2014-02-21 18:58:11,393  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@84e084e
 2014-02-21 18:58:11,393  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 18:58:25,178  INFO  AffiliateDAO: Time to convert EID to TAX ID is:14553
-2014-02-21 18:58:25,178  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1a901a90
-2014-02-21 18:58:25,178  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7ac07ac0
-2014-02-21 18:58:25,178  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
-2014-02-21 18:58:25,202  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@1a901a90
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@7ac07ac0
+2014-02-21 18:58:25,178  INFO  AffiliateDAO: Gov Assigned ID is:null
+2014-02-21 18:58:25,202  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-21 18:58:25,206  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 18:58:25,208  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 18:58:25,208  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 18:58:25,210  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@5b825b82
+2014-02-21 18:58:25,210  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@5b825b82
 2014-02-21 18:58:25,210  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 18:58:25,884  INFO  AffiliateDAO: Time to convert EID to TAX ID is:678
-2014-02-21 18:58:25,884  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@1d8c1d8c
-2014-02-21 18:58:25,884  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@1c281c28
-2014-02-21 18:58:25,884  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@1d8c1d8c
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@1c281c28
+2014-02-21 18:58:25,884  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-21 18:58:25,891  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-21 18:58:25,927  INFO  WebLogFormatter: Starting to format message.
 2014-02-21 18:58:25,931  INFO  WebLogFormatter: Done formatting transaction.
@@ -1288,18 +1288,18 @@ java.lang.NumberFormatException: For input string: ""
 2014-02-21 18:58:25,931  INFO  WebLogMessageBuffer: About to write object.
 2014-02-21 18:58:25,931  INFO  WebLogMessageBuffer: Done writing.
 2014-02-21 18:58:25,941  FATAL Logger: ##### Error in WelcomeViewBean.determineDefaultPage() method #####
-2014-02-21 19:28:16,974  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.beforePhase() method #####
-2014-02-21 19:28:16,996  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.processPreprocess() method #####
-2014-02-21 19:28:17,377  INFO  Logger: ##### Begin PayAndStmtsRequestProcessorPhaseListener.doWelcomeCheck() method #####
+2014-02-21 19:28:16,974  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.beforePhase() method #####
+2014-02-21 19:28:16,996  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.processPreprocess() method #####
+2014-02-21 19:28:17,377  INFO  Logger: ##### Begin ApplicationRequestProcessorPhaseListener.doWelcomeCheck() method #####
 2014-02-21 19:28:17,386  INFO  AffiliateDAO: ----- Sign-on:  calling affiliate service to translate EID to SSN.
 2014-02-21 19:28:17,421  INFO  AffiliateDAO: Successfully set service.endpoint.address property
 2014-02-21 19:28:17,608  INFO  AffiliateDAO: Retrieving AffiliateServiceClient
-2014-02-21 19:28:17,829  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.principal.mks.signon.affiliateservice: com.principal.service.affiliate.RequestContext@be60be6
+2014-02-21 19:28:17,829  INFO  AffiliateDAO: Successfully instantiated RequestContextObject using aim userID: com.abc.mks.signon.affiliateservice: com.abc.service.affiliate.RequestContext@be60be6
 2014-02-21 19:28:17,830  INFO  AffiliateDAO: Executing AffiliateService
-2014-02-21 19:28:24,908  INFO  AffiliateDAO: Time to convert EID to TAX ID is:7518
-2014-02-21 19:28:24,908  INFO  AffiliateDAO: Response is: com.principal.service.affiliate.ResponseStatus@14f214f2
-2014-02-21 19:28:24,908  INFO  AffiliateDAO: Affiliate is: com.principal.service.affiliate.AffiliateRetrieved@7c467c46
-2014-02-21 19:28:24,908  INFO  AffiliateDAO: Gov Assigned ID is: 267846058
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Time to convert EID to TAX ID is:null
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Response is: com.abc.service.affiliate.ResponseStatus@14f214f2
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Affiliate is: com.abc.service.affiliate.AffiliateRetrieved@7c467c46
+2014-02-21 19:28:24,908  INFO  AffiliateDAO: Gov Assigned ID is: null
 2014-02-21 19:28:24,944  INFO  Logger: ##### Begin WelcomeViewBean.determineDefaultPage() method #####
 2014-02-21 19:28:24,996  INFO  WebLogFormatter: Starting to format message.
 2014-02-21 19:28:24,999  INFO  WebLogFormatter: Done formatting transaction.
