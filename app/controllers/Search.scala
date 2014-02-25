@@ -31,7 +31,7 @@ object Search extends Controller with Access with DatabaseService {
 
     val logQuery = LogQueryBuilder.apply(None, None, None, Option(stringArray(3).trim), Option(stringArray(4).trim),
       Option(stringArray(5).trim), Option(stringArray(6).trim), Option(stringArray(7).trim), Option(application._id.toString)).buildQuery()
-    println(logQuery)
+
     jsonBuilder.append("[")
     getCollection("logs").find(logQuery).foreach( jsonBuilder.append(_).append(",") )
     jsonBuilder.deleteCharAt(jsonBuilder.length-1)
