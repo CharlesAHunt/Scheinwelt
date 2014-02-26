@@ -1,4 +1,4 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], dates: String, numbers: String)(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
 
 @import helper._
 
@@ -9,26 +9,28 @@
     <br>
 
     <div class="row well">
-        <div class="col-md-2 col-md-offset-5 lead">Error/Fatal Logs</div>
+        <div class="col-md-2 col-md-offset-5 lead">Error Logs</div>
         <div class="col-md-10"><canvas id="myChart" width="1100" height="300"></canvas></div>
-    </div>
-    <div class="row well">
-        <div class="col-md-5" style='margin-top: -45px;margin-left: -50px;'><canvas id="myChart2" width="550" height="400"></canvas></div>
-        <div class="col-md-5 col-md-offset-1"><canvas id="myChart3" width="550" height="300"></canvas></div>
     </div>
 }
 
+<span id="dates" style="display: none">@Html(dates)</span>
+<span id="numbers" style="display: none">@Html(numbers)</span>
+
 <script type="text/javascript">
 
+    var dates = document.getElementById("dates").innerHTML;
+    var numbers = document.getElementById("numbers").innerHTML;
+    var d = dates.split(",");
     var data = {
-        labels : ["Fall 2013","Spring 2014","Summer 2014","Fall 2014","Spring 2015","Summer 2015","Fall 2014"],
+        labels : d,
         datasets : [
             {
                 fillColor : "rgba(220,220,220,0.5)",
                 strokeColor : "rgba(220,220,220,1)",
                 pointColor : "rgba(220,220,220,1)",
                 pointStrokeColor : "#fff",
-                data : [36,59,60,81,56,55,40]
+                data : [numbers]
             },
             {
                 fillColor : "rgba(151,187,205,0.5)",
@@ -40,46 +42,6 @@
         ]
     };
 
-    var radarChartData = {
-        labels : ["Work From Home","Catered Lunch","Drop RAD","More Natural Light","WAS","JSF","Cafe Food"],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(205,152,161,0.5)",
-                strokeColor : "rgba(205,152,161,1)",
-                pointColor : "rgba(205,152,161,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
-
-    };
-
-    var barChartData = {
-        labels : ["LIFE","PI","RS","MKS","RIS","PGS","PFG"],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                data : [28,48,40,19,78,27,100]
-            }
-        ]
-    };
-
-
     var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).Line(data);
-    var myRadarArea = new Chart($("#myChart2").get(0).getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
-    var myBarArea = new Chart($("#myChart3").get(0).getContext("2d")).Bar(barChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
 
 </script>
