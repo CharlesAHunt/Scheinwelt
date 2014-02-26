@@ -9,8 +9,37 @@
     <br>
 
     <div class="row well">
-        <div class="col-md-2 col-md-offset-5 lead">Error Logs</div>
-        <div class="col-md-10"><canvas id="myChart" width="1100" height="300"></canvas></div>
+        <div class="row">
+            <div style="text-align: center;">
+                <div class="btn-group">
+                    <button type="button" id="logButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" onclick="$( '#error' ).toggle();logs='Error Logs';updateLogButton();">Error Logs</a></li>
+                        <li><a href="#" onclick="$( '#warn' ).toggle();logs='Warn Logs';updateLogButton();">Warn Logs</a></li>
+                        <li><a href="#" onclick="$( '#fatal' ).toggle();logs='Fatal Logs';updateLogButton();">Fatal Logs</a></li>
+                        <li><a href="#" onclick="$( '#debug' ).toggle();logs='Debug Logs';updateLogButton();">Debug Logs</a></li>
+                        <li><a href="#" onclick="$( '#info' ).toggle();logs='Info Logs';updateLogButton();">Info Logs</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="error">
+            <div class="col-md-10"><canvas id="myChart" width="1100" height="300"></canvas></div>
+        </div>
+        <div style="display: none" id="warn">
+            <div class="col-md-10"><canvas id="myChart1" width="1100" height="300"></canvas></div>
+        </div>
+        <div style="display: none" id="fatal">
+            <div class="col-md-10"><canvas id="myChart2" width="1100" height="300"></canvas></div>
+        </div>
+        <div style="display: none" id="debug">
+            <div class="col-md-10"><canvas id="myChart3" width="1100" height="300"></canvas></div>
+        </div>
+        <div style="display: none" id="info">
+            <div class="col-md-10"><canvas id="myChart4" width="1100" height="300"></canvas></div>
+        </div>
     </div>
 }
 
@@ -18,6 +47,14 @@
 <span id="numbers" style="display: none">@Html(numbers)</span>
 
 <script type="text/javascript">
+
+    var logs = "Error Logs <span class='caret'></span>";
+    window.onload = function() {document.querySelector('#logButton').innerHTML = logs;};
+
+    function updateLogButton()
+    {
+        document.querySelector('#logButton').innerHTML = logs+ " <span class='caret'></span>";
+    }
 
     var dates = document.getElementById("dates").innerHTML;
     var numbers = document.getElementById("numbers").innerHTML;
