@@ -1,4 +1,4 @@
-@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User], dates: String, numbers: String)(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
+@(loginForm: play.api.data.Form[User], registerForm: play.api.data.Form[User])(implicit flash: play.api.mvc.Flash, session: play.api.mvc.Session)
 
 @import helper._
 
@@ -15,70 +15,88 @@
                     <button type="button" id="logButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" onclick="$( '#error' ).toggle();logs='Error Logs';updateLogButton();">Error Logs</a></li>
-                        <li><a href="#" onclick="$( '#warn' ).toggle();logs='Warn Logs';updateLogButton();">Warn Logs</a></li>
-                        <li><a href="#" onclick="$( '#fatal' ).toggle();logs='Fatal Logs';updateLogButton();">Fatal Logs</a></li>
-                        <li><a href="#" onclick="$( '#debug' ).toggle();logs='Debug Logs';updateLogButton();">Debug Logs</a></li>
-                        <li><a href="#" onclick="$( '#info' ).toggle();logs='Info Logs';updateLogButton();">Info Logs</a></li>
+                        <li><a href="#" onclick="logs='Error Logs';getLevel='error';updateMetrics();">Error Logs</a></li>
+                        <li><a href="#" onclick="logs='Fatal Logs';getLevel='fatal';updateMetrics();">Fatal Logs</a></li>
+                        <li><a href="#" onclick="logs='Debug Logs';getLevel='debug';updateMetrics();">Debug Logs</a></li>
+                        <li><a href="#" onclick="logs='Warn Logs';getLevel='warn';updateMetrics();">Warn Logs</a></li>
+                        <li><a href="#" onclick="logs='Info Logs';getLevel='info';updateMetrics();">Info Logs</a></li>
                     </ul>
                 </div>
 
             </div>
         </div>
-        <div id="error">
-            <div class="col-md-10"><canvas id="myChart" width="1100" height="300"></canvas></div>
+        <div id="errorChart">
+            <div class="col-md-10"><canvas id="error" width="1100" height="300"></canvas></div>
         </div>
-        <div style="display: none" id="warn">
-            <div class="col-md-10"><canvas id="myChart1" width="1100" height="300"></canvas></div>
+        <div style="display: none" id="warnChart">
+            <div class="col-md-10"><canvas id="warn" width="1100" height="300"></canvas></div>
         </div>
-        <div style="display: none" id="fatal">
-            <div class="col-md-10"><canvas id="myChart2" width="1100" height="300"></canvas></div>
+        <div style="display: none" id="fatalChart">
+            <div class="col-md-10"><canvas id="fatal" width="1100" height="300"></canvas></div>
         </div>
-        <div style="display: none" id="debug">
-            <div class="col-md-10"><canvas id="myChart3" width="1100" height="300"></canvas></div>
+        <div style="display: none" id="debugChart">
+            <div class="col-md-10"><canvas id="debug" width="1100" height="300"></canvas></div>
         </div>
-        <div style="display: none" id="info">
-            <div class="col-md-10"><canvas id="myChart4" width="1100" height="300"></canvas></div>
+        <div style="display: none" id="infoChart">
+            <div class="col-md-10"><canvas id="info" width="1100" height="300"></canvas></div>
         </div>
     </div>
 }
 
-<span id="dates" style="display: none">@Html(dates)</span>
-<span id="numbers" style="display: none">@Html(numbers)</span>
-
 <script type="text/javascript">
 
     var logs = "Error Logs <span class='caret'></span>";
-    window.onload = function() {document.querySelector('#logButton').innerHTML = logs;};
+    var getLevel = "error"
 
-    function updateLogButton()
-    {
-        document.querySelector('#logButton').innerHTML = logs+ " <span class='caret'></span>";
+    function httpGet() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "metrics/"+getLevel, false );
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
     }
 
-    var dates = document.getElementById("dates").innerHTML;
-    var numbers = document.getElementById("numbers").innerHTML;
-    var d = dates.split(",");
-    var data = {
-        labels : d,
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [numbers]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,76,27,57]
-            }
-        ]
+    window.onload = function() {
+        updateMetrics();
+        document.querySelector('#logButton').innerHTML = logs;
     };
 
-    var myPolarArea = new Chart($("#myChart").get(0).getContext("2d")).Line(data);
+    function updateMetrics() {
+        document.querySelector('#logButton').innerHTML = logs+ " <span class='caret'></span>";
+        var metrics = httpGet().split(":");
+        var dates = metrics[0];
+        var numbers = metrics[1];
+        var d = dates.split(",");
+        var data = {
+            labels : d,
+            datasets : [
+                {
+                    fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    data : [numbers]
+                },
+                {
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [28,48,40,19,76,27,57]
+                }
+            ]
+        };
+        new Chart($("#"+getLevel+"").get(0).getContext("2d")).Line(data);
+
+        $( '#warnChart' ).hide();
+        $( '#fatalChart' ).hide();
+        $( '#infoChart' ).hide();
+        $( '#debugChart' ).hide();
+        $( '#errorChart' ).hide();
+        if(getLevel == 'error') $( '#errorChart' ).show();
+        if(getLevel == 'warn') $( '#warnChart' ).show();
+        if(getLevel == 'fatal') $( '#fatalChart' ).show();
+        if(getLevel == 'info') $( '#infoChart' ).show();
+        if(getLevel == 'debug') $( '#debugChart' ).show();
+    }
 
 </script>

@@ -11,6 +11,14 @@ POST        /login                  controllers.Access.login()
 GET         /logout                 controllers.Access.logout()
 POST        /register               controllers.Access.register()
 
+# Metrics
+GET         /metrics/error          controllers.Metrics.error()
+GET         /metrics/warn           controllers.Metrics.warn()
+GET         /metrics/fatal          controllers.Metrics.fatal()
+GET         /metrics/debug          controllers.Metrics.debug()
+GET         /metrics/info           controllers.Metrics.info()
+
+
 GET         /manage                 controllers.Manage.index()
 POST        /manage/app/create      controllers.Manage.createApplication()
 POST        /manage/env/create      controllers.Manage.createEnvironment()

@@ -40,8 +40,10 @@ class Master(nrOfWorkers: Int, nrOfMessages: Int, nrOfElements: Int, listener: A
       pi += value
       nrOfResults += 1
       if (nrOfResults == nrOfMessages) {
+
         // Send the result to the listener
         listener ! PiApproximation(pi, duration = (System.currentTimeMillis - start).millis)
+
         // Stops this actor and all its supervised children
         context.stop(self)
       }

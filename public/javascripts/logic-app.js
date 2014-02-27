@@ -1,30 +1,12 @@
 var app = angular.module('log-ic', []);
 
-app.factory('logSearch', ['$http', function($http) {
-
-    return {
-        fetch: function($scope, text){
-            $http.get('search/' + text)
-                .success(function (data) {
-
-                    $scope.logData = data;
-
-                })
-                .error(function (data, status, headers, config) {
-
-                });
-        }
-    }
-
-}]);
-
-function LogicController($scope, logSearch) {
+app.controller('LogicController', function ($scope, $http) {
 
     $scope.search = false;
 
     $scope.logData = null;
 
-    $scope.doSearch = function() {
+    $scope.doSearch = function(){
 
         var app = document.getElementById('app').value;
         var env = document.getElementById('env').value;
@@ -35,6 +17,16 @@ function LogicController($scope, logSearch) {
         var beforeDate = document.getElementById('beforeDate').value;
         var afterDate = document.getElementById('afterDate').value;
 
-        logSearch.fetch($scope, app+' ::: '+env+' ::: '+region+' ::: '+level+' ::: '+exception+' ::: '+message+' ::: '+beforeDate+' ::: '+afterDate + " ::: ");
+        var text = app+' ::: '+env+' ::: '+region+' ::: '+level+' ::: '+exception+' ::: '+message+' ::: '+beforeDate+' ::: '+afterDate + " ::: ";
+
+        $http.get('search/' + text)
+            .success(function (data) {
+
+                $scope.logData = data;
+
+            })
+            .error(function (data, status, headers, config) {
+
+            });
     };
-}
+});

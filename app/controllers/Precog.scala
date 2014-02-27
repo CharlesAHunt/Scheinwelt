@@ -7,6 +7,7 @@ import utils.{Master, Listener, Calculate}
 object Precog extends Controller with Access {
 
   def index = Action {  implicit request =>
+    calc()
     Ok(views.html.precog(loginForm, registerForm))
   }
 
